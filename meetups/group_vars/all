@@ -1,0 +1,59 @@
+---
+user_name: videoteam
+storage_username: videodata
+# crypt(3)ed password. e.g. echo -e changeme | mkpasswd -s -m SHA-512
+# mkpasswd is part of the whois package on Debian
+user_password_crypted: $6$XQpHonFCApiFLfBJ$jlZu.ywm0Tfeiv87gG8nDUPyChyJjYRO3.O/VEK7w2Ywqqc5lKf1vDKN0UEs1b5Co6SnCaOXcc/jXNCuOk0EH/
+autologin: true
+
+debian_source: http://deb.debian.org/debian
+debian_version: stretch
+
+dhcp_range: 10.18.0.128,10.18.0.254,6h
+domain: video.thepatrick.cloud
+
+time_zone: Australia/Sydney
+
+# Local frequency setting, in Hz
+# This can be either 50 or 60Hz
+frequency: 60
+
+# To enable proprietary drivers, provide a URL to them.
+#blackmagic:
+#  urls:
+#    desktopvideo: http://example.org/desktopvideo_10.9.5a4_amd64.deb
+#    desktopvideo_gui: http://example.org/desktopvideo-gui_10.9.5a4_amd64.deb
+#    mediaexpress: http://example.org/mediaexpress_3.5.3a1_amd64.deb
+#  dkms_version: 10.9.5a4
+
+voctomix:
+  display_system: gl
+  previews: true
+  framerate: 60
+#  loop_url: http://10.18.0.1/loop/loop.ts
+#  bgloop_url: http://10.18.0.1/loop/bgloop.ts
+
+sources:
+  - Cam1
+  - Grabber
+
+room_name: change-me
+
+# Include your SSH keys here
+public_keys_onsite:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqVWkrsFvT2l8cu68uJM7KXIrOsafc3VZo31i9zNKDB
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpBP0M1jtk2cH/1trZzzaS1WMFco6rK2+a6EKB4w4mh0SJCOUNR3yI9H8EL2ote4WtMfRL+8COvnq4v4gPHBqLIhiho9Hi772FoZgWuePcKGqSdgS+IzYhoks0QQfKy8mCajUuGSOApXdi2jTHSANKUFhi6Aqk6fjfqA4KO/P2YhTfvAabYzCQCKStQikEBcTzqMeWtaByKwvcTjWyojPYhaRMLDd08tTxz5sl0FElqdvbvyEJp+wBTsCVZlB/XFy1BOeE03HATS2OT/iFbjGMnz5eV8mj3DCfwWdx9nNDYhAg7wZa0BmKgA7PiT/zKnbvgEQH8KmBIhw7lTV/4cfb
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8yGlMpKPjhazy+ZFfXA6hZv2tLAtw9jTiiqFDKipgrv8pNcbcL8Ek7d95TrmdvKc7vVgisGFIdIVJqC/d/1cyFStExDBDkbCo2qf7Nz2vTMYiUgvz3estL6s1dB5JyfqA5XKdDDh3n0mYzDFo1aWTzyCqqHu4OkxZLhR35DtV9sT12A/Gs+eYITvsZ73u3dzrzMS0aSo9pB1jGSDWLALlToCk6X8gAn3qjd8u4mLmAQ7ieK+tGnoXB2t9SgnJIK6Vj1fYwoevYX4zg8f46N3Q40914Uw0Wmk7cUdFeVgcbaoX7jA755nz8xM0VsPdokSL+HMAj3ad2CtjcvWPJdbX
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCp6vbAYQqPLBVO/DxpkajC4OsPXRcv34bdfJCmS/vIDJi4HxqHUFk+2QTlr5BokbiqsTx76jTpCwiEwXURYCGKHmx8sf/aI8SsjGZcFwQudVJK11zSlVQ1ieUn2zdsTFxENRkS61wgWC8jsU3RnhYubayFwZqTlwCcRPxPYgy8H//sfv5An/Q1AD2mSIIoOhpXAhHHq7Ia6xCc6EOb6kFTxkXj1kcHLFXcUwoma0Egg5KPdMs/Hne0aJSR1G6T4TLU6R/N7xpYhw64rmCHVqbg5G/wccypA7YhCve/UYmTqeKSBMTufQdLCQw5eEKRfZSXLwqB+73U81NND48rqbaj
+
+public_keys_root:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqVWkrsFvT2l8cu68uJM7KXIrOsafc3VZo31i9zNKDB
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpBP0M1jtk2cH/1trZzzaS1WMFco6rK2+a6EKB4w4mh0SJCOUNR3yI9H8EL2ote4WtMfRL+8COvnq4v4gPHBqLIhiho9Hi772FoZgWuePcKGqSdgS+IzYhoks0QQfKy8mCajUuGSOApXdi2jTHSANKUFhi6Aqk6fjfqA4KO/P2YhTfvAabYzCQCKStQikEBcTzqMeWtaByKwvcTjWyojPYhaRMLDd08tTxz5sl0FElqdvbvyEJp+wBTsCVZlB/XFy1BOeE03HATS2OT/iFbjGMnz5eV8mj3DCfwWdx9nNDYhAg7wZa0BmKgA7PiT/zKnbvgEQH8KmBIhw7lTV/4cfb
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8yGlMpKPjhazy+ZFfXA6hZv2tLAtw9jTiiqFDKipgrv8pNcbcL8Ek7d95TrmdvKc7vVgisGFIdIVJqC/d/1cyFStExDBDkbCo2qf7Nz2vTMYiUgvz3estL6s1dB5JyfqA5XKdDDh3n0mYzDFo1aWTzyCqqHu4OkxZLhR35DtV9sT12A/Gs+eYITvsZ73u3dzrzMS0aSo9pB1jGSDWLALlToCk6X8gAn3qjd8u4mLmAQ7ieK+tGnoXB2t9SgnJIK6Vj1fYwoevYX4zg8f46N3Q40914Uw0Wmk7cUdFeVgcbaoX7jA755nz8xM0VsPdokSL+HMAj3ad2CtjcvWPJdbX
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCp6vbAYQqPLBVO/DxpkajC4OsPXRcv34bdfJCmS/vIDJi4HxqHUFk+2QTlr5BokbiqsTx76jTpCwiEwXURYCGKHmx8sf/aI8SsjGZcFwQudVJK11zSlVQ1ieUn2zdsTFxENRkS61wgWC8jsU3RnhYubayFwZqTlwCcRPxPYgy8H//sfv5An/Q1AD2mSIIoOhpXAhHHq7Ia6xCc6EOb6kFTxkXj1kcHLFXcUwoma0Egg5KPdMs/Hne0aJSR1G6T4TLU6R/N7xpYhw64rmCHVqbg5G/wccypA7YhCve/UYmTqeKSBMTufQdLCQw5eEKRfZSXLwqB+73U81NND48rqbaj
+
+public_keys_storage:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqVWkrsFvT2l8cu68uJM7KXIrOsafc3VZo31i9zNKDB
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpBP0M1jtk2cH/1trZzzaS1WMFco6rK2+a6EKB4w4mh0SJCOUNR3yI9H8EL2ote4WtMfRL+8COvnq4v4gPHBqLIhiho9Hi772FoZgWuePcKGqSdgS+IzYhoks0QQfKy8mCajUuGSOApXdi2jTHSANKUFhi6Aqk6fjfqA4KO/P2YhTfvAabYzCQCKStQikEBcTzqMeWtaByKwvcTjWyojPYhaRMLDd08tTxz5sl0FElqdvbvyEJp+wBTsCVZlB/XFy1BOeE03HATS2OT/iFbjGMnz5eV8mj3DCfwWdx9nNDYhAg7wZa0BmKgA7PiT/zKnbvgEQH8KmBIhw7lTV/4cfb
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8yGlMpKPjhazy+ZFfXA6hZv2tLAtw9jTiiqFDKipgrv8pNcbcL8Ek7d95TrmdvKc7vVgisGFIdIVJqC/d/1cyFStExDBDkbCo2qf7Nz2vTMYiUgvz3estL6s1dB5JyfqA5XKdDDh3n0mYzDFo1aWTzyCqqHu4OkxZLhR35DtV9sT12A/Gs+eYITvsZ73u3dzrzMS0aSo9pB1jGSDWLALlToCk6X8gAn3qjd8u4mLmAQ7ieK+tGnoXB2t9SgnJIK6Vj1fYwoevYX4zg8f46N3Q40914Uw0Wmk7cUdFeVgcbaoX7jA755nz8xM0VsPdokSL+HMAj3ad2CtjcvWPJdbX
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCp6vbAYQqPLBVO/DxpkajC4OsPXRcv34bdfJCmS/vIDJi4HxqHUFk+2QTlr5BokbiqsTx76jTpCwiEwXURYCGKHmx8sf/aI8SsjGZcFwQudVJK11zSlVQ1ieUn2zdsTFxENRkS61wgWC8jsU3RnhYubayFwZqTlwCcRPxPYgy8H//sfv5An/Q1AD2mSIIoOhpXAhHHq7Ia6xCc6EOb6kFTxkXj1kcHLFXcUwoma0Egg5KPdMs/Hne0aJSR1G6T4TLU6R/N7xpYhw64rmCHVqbg5G/wccypA7YhCve/UYmTqeKSBMTufQdLCQw5eEKRfZSXLwqB+73U81NND48rqbaj
