@@ -1,0 +1,87 @@
+---
+user_name: videoteam
+storage_username: videodata
+# crypt(3)ed password. e.g. echo -e changeme | mkpasswd -s -m SHA-512
+# mkpasswd is part of the whois package on Debian
+user_password_crypted: $6$XQpHonFCApiFLfBJ$jlZu.ywm0Tfeiv87gG8nDUPyChyJjYRO3.O/VEK7w2Ywqqc5lKf1vDKN0UEs1b5Co6SnCaOXcc/jXNCuOk0EH/
+
+autologin: True
+
+conference_name: Meetups
+conference_town: Sydney
+conference_country: Australia
+
+org: thepatrick
+show: meetups
+
+irc:
+  autostart: true
+  network: freenode
+  server: chat.freenode.net
+  ssl_port: 6697
+  global_channels:
+    - "#thepatrick-av"
+
+mirror: mirror.aarnet.edu.au
+
+time_zone: Australia/Sydney
+
+domain: video.thepatrick.cloud
+
+distro: Debian
+debian_version: stretch
+enable_sid: false
+enable_oldstable: true
+
+debian_host: deb.debian.org
+debian_source: http://deb.debian.org/debian
+debian_suites: [stretch]
+
+apt_proxy: false
+
+# Git repos:
+playbook_repo: https://salsa.debian.org/debconf-video-team/ansible
+playbook_branch: master
+
+# To replace the stock inventory with your own, point at your own github repo
+inventory_repo: https://github.com/thepatrick/inventory.git
+inventory_repo_dir: meetups
+
+# serial_terminal:
+# - tio
+# - minicom
+
+# Local frequency setting, in Hz
+# This can be either 50 or 60Hz
+frequency: 60
+
+sources:
+  - Camera
+  - Grabber
+
+voctomix:
+  display_system: gl
+  previews: false
+  framerate: 30
+  host: localhost
+  port: 10000
+#  loop_url: http://10.18.0.1/loop/loop.ts
+#  bgloop_url: http://10.18.0.1/loop/bgloop.ts
+
+# voctolights:
+# - camera: Camera
+#   plugin: tomu
+
+# veyepar_url: https://veyepar.thepatrick.cloud
+
+# Late night, early morning
+rsync_excludes:
+  - "0[0-7]_*.ts"
+  - "2[0-3]_*.ts"
+
+# extra_debs:
+# - http://storage/debs/voctomix-outcasts_0.7.0-1_all.deb
+
+room_name: change-me
+
+dhcp_range: 10.18.0.128,10.18.0.254,6h
