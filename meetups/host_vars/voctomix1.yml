@@ -8,10 +8,10 @@ room_name: standalone
  connection: SDI
  audio: true
  mode: 15
-- card: 1
- connection: SDI
- audio: false
- mode: 1080p60
+# - card: 1
+#  connection: SDI
+#  audio: false
+#  mode: 1080p60
 # check the frequency setting on the camera
 # make sure it matches what's the frequency of the local power
 # use BlackmagicDesktopVideoSetup to see what the camera is sending
