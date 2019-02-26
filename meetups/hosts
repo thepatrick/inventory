@@ -10,11 +10,25 @@
 bare
 
 [onsite:children]
+# veyepar-encoder-nfs-storage
+nfs-server
 tftp-dhcp-server
 voctomix
 
 [tftp-dhcp-server]
 gw
+
+[nfs-server]
+storage
+
+# [veyepar-basic]
+# storage
+
+# [veyepar-encoder-nfs-storage]
+# encoder1
+# encoder2
+# encoder3
+
 
 [voctomix]
 voctomix1

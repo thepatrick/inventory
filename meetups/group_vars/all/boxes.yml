@@ -4,5 +4,8 @@ staticips:
     - hostname: voctomix1
       ip: 10.18.0.10
       mac: 54:b2:03:08:01:57
+    - hostname: storage
+      ip: 10.18.0.9
+      mac: 00:1f:c6:9c:7f:63
   write_hosts: true
   write_interfaces: true
