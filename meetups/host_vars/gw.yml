@@ -1,3 +1,6 @@
+---
+room_name: gw
+
 eth_local_address: 10.18.0.3
 eth_local_netmask: 24
 eth_local_gateway:
