@@ -4,7 +4,7 @@ room_name: standalone
 irc_room_channel: "#thepatrick-cloud-video"
 irc_nick: thepatrickcloud1
 
-static_ip: 10.18.0.159
+static_ip: 10.18.0.10
 
 sources:
   - Camera1
