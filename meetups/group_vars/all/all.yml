@@ -15,7 +15,7 @@ org: thepatrick
 show: meetups
 
 irc:
-  autostart: true
+  autostart: false
   network: freenode
   server: chat.freenode.net
   ssl_port: 6697
