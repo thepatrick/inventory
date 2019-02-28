@@ -4,7 +4,7 @@ staticips:
     - hostname: voctomix1
       ip: 10.244.67.10
       mac: 54:b2:03:08:01:57
-      disk: /dev/nvme0
+      disk: /dev/nvme0n1
     - hostname: storage
       ip: 10.244.67.2
       mac: 00:1f:c6:9c:7f:63
