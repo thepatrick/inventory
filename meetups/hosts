@@ -17,6 +17,7 @@ voctomix
 
 [tftp-dhcp-server]
 gw
+storage
 
 [nfs-server]
 storage

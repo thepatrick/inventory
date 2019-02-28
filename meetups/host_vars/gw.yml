@@ -14,3 +14,5 @@ eth_uplink_static_netmask: 16
 eth_uplink_static_gateway: 10.244.0.1
 
 apt_proxy: true
+
+dhcp_range: 10.18.0.128,10.18.0.254,6h

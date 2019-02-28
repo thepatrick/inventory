@@ -83,4 +83,4 @@ rsync_excludes:
 
 room_name: change-me
 
-dhcp_range: 10.18.0.128,10.18.0.254,6h
+dhcp_range: 10.244.67.128,10.244.67.254,6h
