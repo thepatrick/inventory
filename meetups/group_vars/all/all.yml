@@ -62,7 +62,7 @@ sources:
 voctomix:
   display_system: gl
   previews: false
-  framerate: 30
+  framerate: 25
   host: localhost
   port: 10000
 #  loop_url: http://10.18.0.1/loop/loop.ts
