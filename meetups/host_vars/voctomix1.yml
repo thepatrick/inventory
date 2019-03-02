@@ -21,7 +21,11 @@ blackmagic_sources:
   - card: 0
     connection: SDI
     audio: true
-    mode: 15
+    mode: 1080p50
+  - card: 1
+    connection: SDI
+    audio: true
+    mode: 1080p50
 # - card: 1
 #  connection: SDI
 #  audio: false
@@ -29,6 +33,8 @@ blackmagic_sources:
 # check the frequency setting on the camera
 # make sure it matches what's the frequency of the local power
 # use BlackmagicDesktopVideoSetup to see what the camera is sending
+# 108059.94 is 15
+# 1080p50 is 14
 # 720p59.94 is 18
 # 720p50 is 17
 # list of all mode IDs: check 'gst-inspect-1.0 decklinkvideosrc'
