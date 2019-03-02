@@ -53,7 +53,7 @@ inventory_repo_dir: meetups
 
 # Local frequency setting, in Hz
 # This can be either 50 or 60Hz
-frequency: 60
+frequency: 50
 
 sources:
   - Camera
