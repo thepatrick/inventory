@@ -72,7 +72,7 @@ voctomix:
 # - camera: Camera
 #   plugin: tomu
 
-# veyepar_url: https://veyepar.thepatrick.cloud
+veyepar_url: https://veyepar.twopats.live
 
 # Late night, early morning
 rsync_excludes:

@@ -22,8 +22,8 @@ storage
 [nfs-server]
 storage
 
-# [veyepar-basic]
-# storage
+[veyepar-basic]
+storage
 
 # [veyepar-encoder-nfs-storage]
 # encoder1
