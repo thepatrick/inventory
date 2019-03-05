@@ -3,6 +3,9 @@
 - hosts: storage-key-server
   roles:
     - storage-key-server
+- hosts: storage-key-client
+  roles:
+    - storage-key-client
 # - hosts: '*'
 #   roles:
 #   - apt
