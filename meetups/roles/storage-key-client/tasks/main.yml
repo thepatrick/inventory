@@ -1,0 +1,13 @@
+---
+- name: Download key
+  get_url:
+    dest: "/home/{{ user_name }}/.ssh/id_ed25519"
+    url: "http://{{ nfs_server }}/storage_key"
+
+- file:
+    path: "/home/{{ user_name }}/.ssh/id_ed25519"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0600
+  tags:
+    - authorized_keys
