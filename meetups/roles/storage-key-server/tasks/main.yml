@@ -1,3 +1,24 @@
-- openssh_keypair:
-    path: /srv/pixe/storage_key
-    type: ed25519
+---
+- name: Create ssh keys
+  expect:
+    command: ssh-keygen -t ed25519 -o -a 100 -f /srv/pxe/storage_key
+    echo: yes
+    timeout: 5
+    responses:
+      "passphrase": "" ## Enter passphrase (empty for no passphrase)
+    creates: /srv/pxe/storage_key
+
+- name: manage storage ssh authorized_keys
+  authorized_key:
+    user: "{{ storage_username }}"
+    key: "{{ lookup('file', '/srv/pxe/storage_key.pub') }}"
+  with_items: "{{ public_keys_storage }}"
+  tags:
+    - authorized_keys
+
+- file:
+    path: /srv/pxe/storage_key
+    owner: videodata
+    group: videodata
+    # when specifying mode using octal numbers, add a leading 0
+    mode: 0644
