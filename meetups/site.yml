@@ -1,5 +1,9 @@
 ---
 - hosts: onsite
+- hosts: nfs-server
+  roles:
+    - nfs-server
+    - storage-key-server
 # - hosts: '*'
 #   roles:
 #   - apt
