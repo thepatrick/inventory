@@ -22,6 +22,9 @@ storage
 [nfs-server]
 storage
 
+[storage-key-server]
+storage
+
 # [veyepar-encoder-nfs-storage]
 # encoder1
 # encoder2
