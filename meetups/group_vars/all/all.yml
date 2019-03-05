@@ -26,7 +26,7 @@ mirror: mirror.aarnet.edu.au
 
 time_zone: Australia/Sydney
 
-domain: video.thepatrick.cloud
+domain: onset.twopats.live
 
 distro: Debian
 debian_version: stretch
@@ -84,3 +84,5 @@ rsync_excludes:
 room_name: change-me
 
 dhcp_range: 10.244.67.128,10.244.67.254,6h
+
+nfs_server: storage
