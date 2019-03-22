@@ -8,6 +8,10 @@
     - storage-key-server
     - storage-volume
     - storage-nfs-server
+- hosts: meetupsencoder-orchestrator
+  roles:
+    - squid-deb-docker-acl
+    - geerlingguy.docker
 # - hosts: '*'
 #   roles:
 #   - apt

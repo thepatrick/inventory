@@ -1,0 +1,5 @@
+---
+- name: restart squid-deb-proxy
+  service:
+    name: squid-deb-proxy
+    state: restarted

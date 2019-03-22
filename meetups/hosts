@@ -21,6 +21,9 @@ storage
 [storage-server]
 storage
 
+[meetupsencoder-orchestrator]
+storage
+
 [voctomix]
 voctomix1
 
