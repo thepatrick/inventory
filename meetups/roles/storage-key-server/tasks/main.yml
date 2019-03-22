@@ -8,10 +8,15 @@
       "passphrase": "" ## Enter passphrase (empty for no passphrase)
     creates: /srv/pxe/storage_key
 
+- name: Slurp storage public key
+  slurp:
+    src: /srv/pxe/storage_key.pub
+  register: storage_public_key
+
 - name: manage storage ssh authorized_keys
   authorized_key:
     user: "{{ storage_username }}"
-    key: "{{ lookup('file', '/srv/pxe/storage_key.pub') }}"
+    key: "{{ storage_public_key['content'] | b64decode }}"
   with_items: "{{ public_keys_storage }}"
   tags:
     - authorized_keys
