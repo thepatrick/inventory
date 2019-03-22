@@ -1,0 +1,6 @@
+---
+eth_local_netmask: 24
+nfs_server: storage
+user_name: videoteam
+storage_username: videodata
+storage_userid: 990

@@ -1,11 +1,13 @@
 ---
 - hosts: onsite
-- hosts: storage-key-server
-  roles:
-    - storage-key-server
 - hosts: storage-key-client
   roles:
     - storage-key-client
+- hosts: storage-server
+  roles:
+    - storage-key-server
+    - storage-volume
+    - storage-nfs-server
 # - hosts: '*'
 #   roles:
 #   - apt

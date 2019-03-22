@@ -10,8 +10,7 @@
 bare
 
 [onsite:children]
-# veyepar-encoder-nfs-storage
-nfs-server
+storage-server
 tftp-dhcp-server
 voctomix
 
@@ -19,17 +18,8 @@ voctomix
 gw
 storage
 
-[nfs-server]
+[storage-server]
 storage
-
-[storage-key-server]
-storage
-
-# [veyepar-encoder-nfs-storage]
-# encoder1
-# encoder2
-# encoder3
-
 
 [voctomix]
 voctomix1

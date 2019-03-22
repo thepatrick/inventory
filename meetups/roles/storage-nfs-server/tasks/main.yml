@@ -1,0 +1,48 @@
+---
+- name: Install nfs-kernel-server
+  apt:
+    name: nfs-kernel-server
+
+- name: create our storage user
+  user:
+    name: "{{ storage_username }}"
+    uid: "{{ storage_userid }}"
+
+- name: manage storage ssh authorized_keys
+  authorized_key:
+    user: "{{ storage_username }}"
+    key: "{{ item }}"
+  with_items: "{{ public_keys_storage }}"
+  tags:
+    - authorized_keys
+
+- name: Create base for mount points
+  file:
+    path: /srv/{{ nfs_server }}
+    state: directory
+    owner: root
+    group: root
+
+- name: Create mount points for video user
+  file:
+    path: /srv/{{ nfs_server }}/{{ item }}
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+  with_items:
+  - encodes
+
+- name: Create mount points for storage user
+  file:
+    path: /srv/{{ nfs_server }}/{{ item }}
+    state: directory
+    owner: "{{ storage_username }}"
+    group: "{{ storage_username }}"
+  with_items:
+  - video
+
+- name: Write /etc/exports
+  template:
+    src: templates/exports.j2
+    dest: /etc/exports
+  notify: exportfs

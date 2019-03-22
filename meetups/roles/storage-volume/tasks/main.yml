@@ -1,0 +1,27 @@
+---
+- name: install parted, for storage-volume
+  apt:
+    name: parted
+
+- name: Partition storage volume
+  parted:
+    device: "{{ storage_volume_device }}"
+    label: gpt
+    name: "{{ storage_volume_label }}"
+    number: 1
+    state: present
+  when: storage_volume_device is defined
+
+- name: Format storage volume
+  filesystem:
+    fstype: "{{ storage_volume_fstype }}"
+    dev: "{{ storage_volume_partition }}"
+  when: storage_volume_partition is defined
+
+- name: Mount storage volume
+  mount:
+    path: "{{ storage_volume_mountpoint }}"
+    src: "{{ storage_volume_partition }}"
+    fstype: "{{ storage_volume_fstype }}"
+    state: mounted
+  when: storage_volume_partition is defined

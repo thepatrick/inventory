@@ -12,3 +12,6 @@ apt_proxy: true
 veyepar_confs: /home/videoteam/veyepar
 # Dir that contains the show's assets, like the title.svg and font files
 veyepar_assets: /home/videoteam/veyepar
+
+storage_volume_device: /dev/nvme0n1
+storage_volume_partition: /dev/nvme0n1p1

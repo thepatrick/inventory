@@ -1,0 +1,6 @@
+---
+storage_volume_device:
+storage_volume_partition:
+storage_volume_fstype: ext4 
+storage_volume_mountpoint: /srv/storage
+storage_volume_label: storage
