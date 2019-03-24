@@ -1,0 +1,27 @@
+---
+- apt:
+    state: latest
+    name: python-pip
+
+- pip:
+    name: docker
+
+- name: Re-create a redis container
+  docker_container:
+    name: meetupsencoder-redis
+    image: redis
+    command: redis-server --appendonly yes
+    state: started
+    published_ports:
+      - "6379:6379"
+
+- name: resque-web container
+  docker_container:
+    name: meetupsencoder-resque-web
+    image: ennexa/resque-web
+    command: -r redis://redis:6379
+    state: started
+    published_ports:
+      - "5678:5678"
+    links:
+      - "meetupsencoder-redis:redis"
