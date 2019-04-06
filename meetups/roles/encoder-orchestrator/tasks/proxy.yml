@@ -1,0 +1,29 @@
+---
+- name: install nginx
+  apt:
+    name: nginx-extras
+
+- name: remove default nginx vhost
+  file:
+    path: /etc/nginx/sites-available/default
+    state: absent
+  notify: reload nginx
+
+- name: place resque-web nginx vhost
+  template:
+    src: templates/resque-web.j2
+    dest: /etc/nginx/sites-available/resque-web
+  notify: reload nginx
+
+- name: enable resque-web nginx vhost
+  file:
+    state: link
+    src: /etc/nginx/sites-available/resque-web
+    dest: /etc/nginx/sites-enabled/resque-web
+  notify: reload nginx
+
+- name: dnsmasq entries for orchestrator
+  template:
+    src: templates/dnsmasq-proxy.conf.j2
+    dest: /etc/dnsmasq.d/encoder-orchestrator.conf
+  notify: restart dnsmasq
