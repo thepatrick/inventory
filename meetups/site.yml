@@ -12,4 +12,5 @@
   roles:
     - squid-deb-docker-acl
     - geerlingguy.docker
+    - docker-py
     - encoder-orchestrator
