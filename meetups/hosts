@@ -24,6 +24,9 @@ storage
 [meetupsencoder-orchestrator]
 storage
 
+[meetupsencoder-worker]
+storage
+
 [voctomix]
 voctomix1
 

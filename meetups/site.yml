@@ -14,3 +14,9 @@
     - geerlingguy.docker
     - docker-py
     - encoder-orchestrator
+- hosts: meetupsencoder-worker
+  roles:
+    - squid-deb-docker-acl
+    - geerlingguy.docker
+    - docker-py
+    - encoder-worker

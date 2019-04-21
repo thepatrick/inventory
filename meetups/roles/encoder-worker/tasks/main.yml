@@ -1,0 +1,16 @@
+---
+- name: pull worker container
+  docker_image:
+    name: thepatrick/meetupsencoder-worker
+    tag: latest
+
+- name: worker container
+  docker_container:
+    name: meetupsencoder-worker
+    image: thepatrick/meetupsencoder-worker
+    state: started
+    restart_policy: always
+    env:
+      REDIS_HOST: "{{ encoder_orchestrator_redis_hostname }}"
+    volumes:
+      - "/srv/{{ nfs_server }}:/srv/{{ nfs_server }}"
