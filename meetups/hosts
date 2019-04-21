@@ -18,6 +18,9 @@ voctomix
 gw
 storage
 
+[tftp-dhcp-additions]
+storage
+
 [storage-server]
 storage
 

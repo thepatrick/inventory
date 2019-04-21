@@ -1,0 +1,7 @@
+## {{ ansible_managed }}
+
+{% for host in staticips.hosts %}
+{% if host.comment is defined %}# {{ host.hostname }}: {{ host.comment }}{% endif %}
+{% if host.ip is defined %}host-record={{ host.hostname }}.{{ domain }},{{ host.ip }}{% endif %}
+
+{% endfor %}

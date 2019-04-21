@@ -20,3 +20,6 @@
     - geerlingguy.docker
     - docker-py
     - encoder-worker
+- hosts: tftp-dhcp-additions
+  roles:
+    - dns-for-static-hosts

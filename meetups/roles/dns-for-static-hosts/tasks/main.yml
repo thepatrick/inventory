@@ -1,0 +1,8 @@
+---
+- name: configure static hosts with full domain
+  template:
+    src: templates/machines-domain.conf.j2
+    dest: /etc/dnsmasq.d/machines-domain.conf
+  notify: restart dnsmasq
+  tags:
+  - staticips
