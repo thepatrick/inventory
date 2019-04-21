@@ -4,10 +4,10 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name {{ encoder_orchestrator_resque_hostname }};
+	server_name {{ encoder_orchestrator_api_hostname }};
 
 	location / {
-        proxy_pass http://127.0.0.1:5678;
+        proxy_pass http://127.0.0.1:8181;
 
         proxy_set_header        Host            $host;
 
@@ -27,6 +27,6 @@ server {
         proxy_buffers 32 4k;
 	}
 
-	access_log /var/log/nginx/resque-web-access.log;
-	error_log /var/log/nginx/resque-web-error.log;
+	access_log /var/log/nginx/orchestrator-proxy-access.log;
+	error_log /var/log/nginx/orchestrator-proxy-error.log;
 }
