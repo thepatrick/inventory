@@ -1,0 +1,4 @@
+---
+- include_tasks: redis.yml
+- include_tasks: orchestrator.yml
+- include_tasks: proxy.yml

@@ -1,0 +1,6 @@
+---
+- name: allow squid-deb-proxy to hit download.docker.com
+  copy:
+    src: files/50-docker
+    dest: /etc/squid-deb-proxy/mirror-dstdomain.acl.d/50-docker
+  notify: restart squid-deb-proxy

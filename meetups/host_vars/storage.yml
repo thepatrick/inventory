@@ -15,3 +15,6 @@ veyepar_assets: /home/videoteam/veyepar
 
 storage_volume_device: /dev/nvme0n1
 storage_volume_partition: /dev/nvme0n1p1
+
+# DNS won't resolve so point at it by IP
+encoder_orchestrator_redis_hostname: 10.244.67.2
