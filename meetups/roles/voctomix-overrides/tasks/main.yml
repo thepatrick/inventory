@@ -1,0 +1,7 @@
+---
+- name: re-configure voctomix
+  template:
+    src: "templates/{{ item }}.j2"
+    dest: "/etc/voctomix/{{ item }}"
+  with_items:
+  - voctocore.ini

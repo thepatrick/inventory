@@ -33,5 +33,8 @@ storage
 [voctomix]
 voctomix1
 
+[voctomix-overrides]
+voctomix1
+
 [storage-key-client]
 voctomix1
