@@ -1,0 +1,21 @@
+---
+- name: pull orchestrator container
+  docker_image:
+    name: thepatrick/meetupsencoder-orchestrator
+    tag: latest
+
+
+- name: orchestrator container
+  docker_container:
+    name: meetupsencoder-orchestrator
+    image: thepatrick/meetupsencoder-orchestrator
+    state: started
+    published_ports:
+      - "8181:8181"
+    links:
+      - "meetupsencoder-redis:redis"
+    restart_policy: always
+    env:
+      REDIS_HOST: redis
+
+# --env REDIS_HOST=redis 
