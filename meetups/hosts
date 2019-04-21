@@ -18,6 +18,9 @@ voctomix
 gw
 storage
 
+[tftp-dhcp-additions]
+storage
+
 [storage-server]
 storage
 
@@ -28,6 +31,9 @@ storage
 storage
 
 [voctomix]
+voctomix1
+
+[voctomix-overrides]
 voctomix1
 
 [storage-key-client]
