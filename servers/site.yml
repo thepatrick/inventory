@@ -1,0 +1,5 @@
+---
+- hosts: common
+  roles:
+  - geerlingguy.github-users 
+  - weareinteractive.sudo

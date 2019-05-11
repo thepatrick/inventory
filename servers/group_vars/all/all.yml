@@ -1,0 +1,21 @@
+---
+github_users:
+- name: thepatrick
+  groups: sudo
+
+sudo_defaults:
+- defaults: env_reset
+- defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+sudo_users:
+- name: 'thepatrick'
+  nopasswd: yes
+purge_other_sudoers_files: no
+
+time_zone: Australia/Sydney
+domain: thepatrick.cloud
+
+# Git repos:
+ansible_repo: https://github.com/thepatrick/inventory.git
+ansible_branch: master
+ansible_repo_dir: servers
+
