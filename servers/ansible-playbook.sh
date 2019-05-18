@@ -21,7 +21,6 @@ ansible-playbook \
     --diff \
     --inventory-file=hosts \
     --become \
-    --ask-become-pass \
     --user $ANSIBLE_USER \
     --limit=$LIMIT_FILTER \
     $PLAYBOOKS \

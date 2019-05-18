@@ -1,13 +1,17 @@
 ---
-github_users:
-- name: thepatrick
+users:
+- name: patrick
+  github_username: thepatrick
   groups: sudo
+
+users_absent:
+- thepatrick
 
 sudo_defaults:
 - defaults: env_reset
 - defaults: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 sudo_users:
-- name: 'thepatrick'
+- name: 'patrick'
   nopasswd: yes
 purge_other_sudoers_files: no
 
