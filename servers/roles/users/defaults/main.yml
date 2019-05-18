@@ -1,0 +1,20 @@
+---
+users: []
+# You can specify an object with 'name' (required) and 'groups' (optional):
+# - name: patrick
+#   github_username: thepatrick
+#   groups: www-data,sudo
+
+# Or you can specify a GitHub username directly:
+# - geerlingguy
+
+users_absent: []
+# You can specify an object with 'name' (required):
+# - name: geerlingguy
+
+# Or you can specify a GitHub username directly:
+# - geerlingguy
+
+users_authorized_keys_exclusive: true
+
+github_url: https://github.com
