@@ -32,7 +32,7 @@ deinterlace=false
 
 ; default to mix-videocaps, only applicable if enabled=true
 ; you can change the framerate and the width/height, but nothing else
-videocaps=video/x-raw,width=640,height=360,framerate={{ voctomix.framerate }}/1
+videocaps=video/x-raw,width={{ voctomix_preview_width }},height={{ voctomix_preview_height }},framerate={{ voctomix.framerate }}/1
 
 [stream-blanker]
 enabled=true
