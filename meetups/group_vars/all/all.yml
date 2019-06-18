@@ -61,7 +61,7 @@ sources:
 
 voctomix:
   display_system: gl
-  previews: false
+  previews: true
   framerate: 25
   host: localhost
   port: 10000
