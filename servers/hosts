@@ -10,3 +10,6 @@
 ansible1-syd.thepatrick.cloud
 argon-syd.thepatrick.cloud
 
+[docker]
+argon-syd.thepatrick.cloud
+

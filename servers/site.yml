@@ -5,3 +5,7 @@
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
+- hosts: docker
+  roles:
+  - geerlingguy.docker
+
