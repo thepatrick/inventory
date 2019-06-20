@@ -3,3 +3,5 @@
   roles:
   - users 
   - weareinteractive.sudo
+  - ssh-lockdown
+  - mosh
