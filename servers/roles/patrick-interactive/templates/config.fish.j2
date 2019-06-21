@@ -1,0 +1,110 @@
+# Snippet setting git branch and git dirty helper
+# Commit at the end kept from original snippet, I added the rev-parse stuff and the proper redirection.
+
+function add_to_path
+  if test -e $argv[1]
+    if not contains $argv[1] $PATH
+      set -x PATH $argv[1] $PATH 
+    end
+  end
+end
+
+add_to_path /usr/bin
+add_to_path /usr/sbin
+add_to_path /usr/local/bin
+add_to_path /usr/local/sbin
+add_to_path ~/bin
+add_to_path ~/etc
+add_to_path $HOME/.rvm/bin        # Add RVM to PATH for scripting
+add_to_path $HOME/.local/bin      # pip install --user puts things here
+add_to_path $HOME/.tfenv/bin
+
+function lsl
+  ls -lFh $argv
+end
+
+function lsa
+  ls -laFh $argv
+end
+
+if test -e "/usr/bin/xcrun"
+  function getinfo
+    xcrun GetFileInfo $argv
+  end
+end
+
+function http
+  curl http://httpcode.info/$argv[1]
+end
+
+set -x HOMEBREW_NO_ANALYTICS 1
+
+if test -e ~/.nvm
+  set -x NVM_DIR ~/.nvm
+  if test -e ~/.nvm/nvm.sh
+    set NVM_SH ~/.nvm/nvm.sh
+  else
+    set BREW_SH (which brew)
+    if test -e $BREW_SH
+      set NVM_SH (brew --prefix nvm)/nvm.sh
+    end
+  end
+  if test -e $NVM_SH
+    bass source $NVM_SH
+    function nvm
+       bass source $NVM_SH --no-use ';' nvm $argv
+    end
+  else
+    echo "Could not find nvm.sh (best guess $NVM_SH), disabling nvm helpers"
+  end
+else
+  echo No ~/.nvm, disabling nvm helpers
+end
+
+if test -e ~/.sdkman/bin/sdkman-init.sh
+  function sdk
+    bass source ~/.sdkman/bin/sdkman-init.sh --no-use ';' sdk $argv
+  end
+end
+
+if test (which thefuck)
+  if test -e (which thefuck)
+    eval (thefuck --alias crap | tr '\n' ';')
+  end
+end
+
+# in .config.fish
+function fish_prompt
+  env FISH_VERSION=$FISH_VERSION PROMPTLINE_LAST_EXIT_CODE=$status bash $HOME/.config/fish/shell_prompt.sh left
+end
+
+function fish_right_prompt
+  env FISH_VERSION=$FISH_VERSION PROMPTLINE_LAST_EXIT_CODE=$status bash $HOME/.config/fish/shell_prompt.sh right
+end
+
+if test -e ~/.config/fish/config_local.fish
+  source ~/.config/fish/config_local.fish
+end
+
+function weather
+  curl 'wttr.in?m'
+end
+
+set -x CLICOLOR 1
+set -x LSCOLORS GxFxCxDxBxegedabagaced
+
+set -x GPG_TTY (tty)
+set -x EDITOR vim
+
+if test (which gpg-agent)
+  echo GPG Agent present
+  # bass (gpg-agent --daemon --enable-ssh-support --write-env-file "$HOME/.gpg-agent-info")
+  if test -e ~/.gnupg/S.gpg-agent.ssh
+    set -x SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
+  else if test -e $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+    set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
+  else
+    echo Could not find S.gpg-agent.ssh
+  end
+end
+

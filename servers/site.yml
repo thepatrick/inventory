@@ -1,12 +1,13 @@
 ---
 - hosts: common
   roles:
-  - patrick-interactive
+  - fish
   - users 
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
 - hosts: argon
   roles:
+  - patrick-interactive
   - geerlingguy.docker
 
