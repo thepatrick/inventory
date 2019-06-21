@@ -1,6 +1,7 @@
 ---
 - hosts: common
   roles:
+  - patrick-interactive
   - users 
   - weareinteractive.sudo
   - ssh-lockdown

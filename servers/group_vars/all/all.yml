@@ -3,6 +3,7 @@ users:
 - name: patrick
   github_username: thepatrick
   groups: sudo
+  shell: /usr/bin/fish
 
 users_absent:
 - thepatrick
