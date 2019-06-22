@@ -1,0 +1,34 @@
+[user]
+    name = Patrick Quinn-Graham
+    email = make-contact@pftqg.com
+{% if git_sign_commits %}
+    signingkey = 4AACED0B
+{% endif %}
+
+{% if git_sign_commits %}
+[commit]
+    gpgSign = true
+[tag]
+    forceSignAnnotated = true
+{% endif %}
+
+[core]
+    pager = diff-so-fancy | less --tabs=2 -RFX
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[diff-so-fancy]
+    markEmptyLines = false
+    changeHunkIndicators = false
+

@@ -1,0 +1,27 @@
+ControlMaster auto
+ControlPath   ~/.ssh/tmp/%h_%p_%r
+
+Host digby
+  HostName digby.us.bigtr.net
+  ForwardAgent yes
+  User patrick
+
+Host bouncer
+  HostName bouncer.digby.us.bigtr.net
+  ForwardAgent yes
+
+{#
+Host 10.192.11.*
+  ProxyCommand ssh gateway-host nc -w 120 %h %p
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+#}
+
+Host ansible1-syd
+  HostName ansible1-syd.thepatrick.cloud
+  User patrick
+
+Host *
+  ServerAliveCountMax 3
+  ServerAliveInterval 60
+  KeepAlive yes

@@ -2,4 +2,6 @@
 - include_tasks: folders.yml
 - include_tasks: fish.yml
 - include_tasks: vim.yml
+- include_tasks: ssh.yml
+- include_tasks: git.yml
 

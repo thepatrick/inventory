@@ -8,6 +8,4 @@
     group: "patrick"
   with_items:
   - "bin"
-  - ".ssh"
-  - ".ssh/tmp"
 
