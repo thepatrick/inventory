@@ -6,6 +6,9 @@
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
+- hosts: ansible
+  roles:
+  - patrick-interactive
 - hosts: argon
   roles:
   - patrick-interactive

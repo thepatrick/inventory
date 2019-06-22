@@ -1,1 +1,3 @@
+---
 ansible_host_vars_says_hello: true
+git_sign_commits: false
