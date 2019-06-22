@@ -48,4 +48,8 @@
     repo: 'Keithbsmiley/swift.vim'
   - name: 'vim-unimpaired'
     repo: 'tpope/vim-unimpaired'
+  - name: 'Dockerfile'
+    repo: 'ekalinin/Dockerfile.vim'
+  - name: 'promptline.vim'
+    repo: 'edkolev/promptline.vim'
 
