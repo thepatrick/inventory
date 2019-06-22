@@ -17,3 +17,11 @@
     owner: "patrick"
     group: "patrick"
 
+- name: download diff-so-fancy
+  get_url:
+    url: https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
+    dest: "/home/patrick/bin/diff-so-fancy"
+    mode: "0755"
+    owner: "patrick"
+    group: "patrick"
+
