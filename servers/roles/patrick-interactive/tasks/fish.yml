@@ -1,0 +1,50 @@
+---
+- name: fish config directories
+  file:
+    state: directory
+    path: "/home/patrick/{{item}}"
+    mode: "0755"
+  with_items:
+  - ".config/fish"
+  - ".config/fish/functions"
+  - ".config/fish/completions"
+  - ".config/fisherman"
+
+- name: fish.config
+  template:
+    src: "templates/config.fish.j2"
+    dest: "/home/patrick/.config/fish/config.fish"
+
+- name: fish config files
+  copy:
+    src: "files/{{item}}"
+    dest: "/home/patrick/.config/fish/{{item}}"
+  with_items:
+  - "fish_variables"
+  - "fishfile"
+  - "shell_prompt.sh"
+  - "completions/fisher.fish"
+  - "functions/copy-bass.fish"
+  - "functions/fish_prompt.fish"
+  - "functions/fisher.fish"
+  - "functions/rvm.fish"
+
+- name: get bass
+  git:
+    repo: https://github.com/edc/bass
+    dest: "/home/patrick/.config/fisherman/bass"
+
+- name: Link bass
+  file:
+    state: link
+    src: "/home/patrick/.config/fisherman/bass/functions/{{item}}"
+    dest: "/home/patrick/.config/fish/functions/{{item}}"
+  with_items:
+  - "__bass.py"
+  - "bass.fish"
+
+- name: "vimrc"
+  copy:
+    src: "files/vimrc"
+    dest: "/home/patrick/.vimrc"
+

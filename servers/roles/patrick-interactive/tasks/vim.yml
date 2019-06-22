@@ -1,0 +1,43 @@
+---
+- name: vim config directories
+  file:
+    state: directory
+    path: "/home/patrick/{{item}}"
+    mode: "0755"
+  with_items:
+  - ".vim"
+  - ".vim/autoload"
+  - ".vim/bundle"
+  - ".vim/colors"
+
+- name: "vimrc"
+  copy:
+    src: "files/vimrc"
+    dest: "/home/patrick/.vimrc"
+
+- name: vim config files
+  copy:
+    src: "files/vim/{{item}}"
+    dest: "/home/patrick/.vim/{{item}}"
+  with_items:
+  - "autoload/pathogen.vim"
+  - "colors/onedark.vim"
+
+- name: get bass
+  git:
+    repo: "https://github.com/{{item.repo}}.git"
+    dest: "/home/patrick/.vim/bundle/{{item.name}}"
+  loop:
+  - name: 'command-t'
+    repo: 'wincent/command-t'
+  - name: 'vim-airline'
+    repo: 'bling/vim-airline'
+  - name: 'syntastic'
+    repo: 'scrooloose/syntastic'
+  - name: 'nerdtree'
+    repo: 'scrooloose/nerdtree'
+  - name: 'swift'
+    repo: 'Keithbsmiley/swift.vim'
+  - name: 'vim-unimpaired'
+    repo: 'tpope/vim-unimpaired'
+
