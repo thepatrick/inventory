@@ -1,0 +1,13 @@
+---
+- name: home directory directories
+  file:
+    state: directory
+    path: "/home/patrick/{{item}}"
+    mode: "0755"
+    owner: "patrick"
+    group: "patrick"
+  with_items:
+  - "bin"
+  - ".ssh"
+  - ".ssh/tmp"
+

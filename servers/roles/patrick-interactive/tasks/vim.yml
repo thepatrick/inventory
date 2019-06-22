@@ -4,6 +4,8 @@
     state: directory
     path: "/home/patrick/{{item}}"
     mode: "0755"
+    owner: "patrick"
+    group: "patrick"
   with_items:
   - ".vim"
   - ".vim/autoload"
@@ -14,11 +16,15 @@
   copy:
     src: "files/vimrc"
     dest: "/home/patrick/.vimrc"
+    owner: "patrick"
+    group: "patrick"
 
 - name: vim config files
   copy:
     src: "files/vim/{{item}}"
     dest: "/home/patrick/.vim/{{item}}"
+    owner: "patrick"
+    group: "patrick"
   with_items:
   - "autoload/pathogen.vim"
   - "colors/onedark.vim"
@@ -27,6 +33,8 @@
   git:
     repo: "https://github.com/{{item.repo}}.git"
     dest: "/home/patrick/.vim/bundle/{{item.name}}"
+  become: "yes"
+  become_user: "patrick"
   loop:
   - name: 'command-t'
     repo: 'wincent/command-t'

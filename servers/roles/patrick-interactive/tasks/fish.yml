@@ -4,6 +4,8 @@
     state: directory
     path: "/home/patrick/{{item}}"
     mode: "0755"
+    owner: "patrick"
+    group: "patrick"
   with_items:
   - ".config/fish"
   - ".config/fish/functions"
@@ -14,11 +16,15 @@
   template:
     src: "templates/config.fish.j2"
     dest: "/home/patrick/.config/fish/config.fish"
+    owner: "patrick"
+    group: "patrick"
 
 - name: fish config files
   copy:
     src: "files/{{item}}"
     dest: "/home/patrick/.config/fish/{{item}}"
+    owner: "patrick"
+    group: "patrick"
   with_items:
   - "fish_variables"
   - "fishfile"
@@ -33,12 +39,16 @@
   git:
     repo: https://github.com/edc/bass
     dest: "/home/patrick/.config/fisherman/bass"
+  become: yes
+  become_user: "patrick"
 
 - name: Link bass
   file:
     state: link
     src: "/home/patrick/.config/fisherman/bass/functions/{{item}}"
     dest: "/home/patrick/.config/fish/functions/{{item}}"
+    owner: "patrick"
+    group: "patrick"
   with_items:
   - "__bass.py"
   - "bass.fish"
@@ -47,4 +57,6 @@
   copy:
     src: "files/vimrc"
     dest: "/home/patrick/.vimrc"
+    owner: "patrick"
+    group: "patrick"
 

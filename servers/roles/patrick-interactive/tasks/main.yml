@@ -1,4 +1,5 @@
 ---
+- include_tasks: folders.yml
 - include_tasks: fish.yml
 - include_tasks: vim.yml
 
