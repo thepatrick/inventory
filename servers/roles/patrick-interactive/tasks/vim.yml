@@ -1,4 +1,10 @@
 ---
+- name: Ensure vim Is Present
+  become: true
+  package:
+    name: 'vim'
+    state: present
+
 - name: vim config directories
   file:
     state: directory
