@@ -2,7 +2,7 @@
 - name: git config
   template:
     src: "templates/gitconfig.j2"
-    dest: "/home/patrick/.gitconfig"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.gitconfig"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 

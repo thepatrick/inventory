@@ -1,17 +1,19 @@
 ---
 - name: Ensure vim Is Present
   become: true
+  become_user: "{{patrick_interactive_package_user}}"
   package:
     name: 'vim'
     state: present
+# TODO: Do this for macOS too
 
 - name: vim config directories
   file:
     state: directory
-    path: "/home/patrick/{{item}}"
+    path: "{{patrick_interactive_home}}/{{item}}"
     mode: "0755"
-    owner: "patrick"
-    group: "patrick"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - ".vim"
   - ".vim/autoload"
@@ -21,16 +23,16 @@
 - name: "vimrc"
   copy:
     src: "files/vimrc"
-    dest: "/home/patrick/.vimrc"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.vimrc"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 
 - name: vim config files
   copy:
     src: "files/vim/{{item}}"
-    dest: "/home/patrick/.vim/{{item}}"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.vim/{{item}}"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - "autoload/pathogen.vim"
   - "colors/onedark.vim"
@@ -38,9 +40,9 @@
 - name: get bass
   git:
     repo: "https://github.com/{{item.repo}}.git"
-    dest: "/home/patrick/.vim/bundle/{{item.name}}"
+    dest: "{{patrick_interactive_home}}/.vim/bundle/{{item.name}}"
   become: "yes"
-  become_user: "patrick"
+  become_user: "{{patrick_interactive_user}}"
   loop:
   - name: 'command-t'
     repo: 'wincent/command-t'
