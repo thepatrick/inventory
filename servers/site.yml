@@ -13,4 +13,10 @@
   roles:
   - patrick-interactive
   - geerlingguy.docker
-
+- hosts: macs
+  roles:
+  - fish
+  # - users 
+  # - weareinteractive.sudo
+  # - ssh-lockdown
+  # - patrick-interactive

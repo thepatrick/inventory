@@ -1,7 +1,15 @@
 ---
-- name: Ensure Fish Is Present
+- name: Ensure Fish Is Present (Linux)
   become: true
   package:
+    name: 'fish'
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure Fish Is Present (macOS)
+  when: ansible_distribution == 'MacOSX'
+  become_user: patrick
+  homebrew:
     name: 'fish'
     state: present
 
