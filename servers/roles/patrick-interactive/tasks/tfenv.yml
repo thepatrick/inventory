@@ -1,0 +1,7 @@
+---
+- name: Ensure tfenv is present
+  git:
+    repo: "https://github.com/kamatama41/tfenv.git"
+    dest: "{{patrick_interactive_home}}/.tfenv"
+  become: "yes"
+  become_user: "{{patrick_interactive_user}}"

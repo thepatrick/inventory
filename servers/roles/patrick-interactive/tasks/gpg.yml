@@ -1,0 +1,25 @@
+---
+- name: home directory directories
+  file:
+    state: directory
+    path: "{{patrick_interactive_home}}/{{item}}"
+    mode: "0755"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
+  with_items:
+  - ".gnupg"
+
+- name: gpg config file
+  copy:
+    src: "files/gnupg/gpg.conf"
+    dest: "{{patrick_interactive_home}}/.gnupg/gpg.conf"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
+
+- name: gpg-agent config
+  template:
+    src: "templates/gnupg/gpg-agent.conf.j2"
+    dest: "{{patrick_interactive_home}}/.gnupg/gpg-agent.conf"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
+    mode: "0700"
