@@ -6,3 +6,4 @@
 - include_tasks: git.yml
 - include_tasks: tfenv.yml
 - include_tasks: gpg.yml
+- include_tasks: nvm.yml
