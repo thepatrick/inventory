@@ -4,3 +4,5 @@ voctomix_height: 1080
 
 voctomix_preview_width: 1280
 voctomix_preview_height: 720
+
+voctomix_previews: true

@@ -5,3 +5,9 @@
     dest: "/etc/voctomix/{{ item }}"
   with_items:
   - voctocore.ini
+
+- name: remove voctogui autostart
+  file:
+    path: /etc/xdg/autostart/voctogui.desktop
+    state: absent
+

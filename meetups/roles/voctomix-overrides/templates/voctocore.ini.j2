@@ -27,7 +27,7 @@ audiosource={{ audiosource }}
 
 [previews]
 ; disable if ui & server run on the same computer and can exchange uncompressed video frames
-enabled={{ voctomix.previews }}
+enabled={{ voctomix_previews }}
 deinterlace=false
 
 ; default to mix-videocaps, only applicable if enabled=true
@@ -39,4 +39,4 @@ enabled=true
 sources=loop,nostream
 
 [mirrors]
-enabled={{ not voctomix.previews }}
+enabled={{ not voctomix_previews }}
