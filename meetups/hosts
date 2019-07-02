@@ -32,9 +32,12 @@ storage
 
 [voctomix]
 voctomix1
+voctomix2
 
 [voctomix-overrides]
 voctomix1
+voctomix2
 
 [storage-key-client]
 voctomix1
+voctomix2
