@@ -65,6 +65,7 @@ voctomix:
   framerate: 25
   host: localhost
   port: 10000
+  autostart_gui: false
 #  loop_url: http://10.18.0.1/loop/loop.ts
 #  bgloop_url: http://10.18.0.1/loop/bgloop.ts
 
