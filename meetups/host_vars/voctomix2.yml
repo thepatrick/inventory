@@ -1,0 +1,49 @@
+---
+room_name: standalone
+
+irc_room_channel: "#thepatrick-cloud-video"
+irc_nick: thepatrickcloud2
+
+static_ip: 10.244.67.11
+
+sources:
+  - Camera1
+  - Grabber
+
+# To enable proprietary drivers, provide a URL to them.
+blackmagic:
+  urls:
+    desktopvideo: http://storage/bm/desktopvideo_10.11.4a9_amd64.deb
+    desktopvideo_gui: http://storage/bm/desktopvideo-gui_10.11.4a9_amd64.deb
+  dkms_version: 10.11.4a9
+
+blackmagic_sources:
+  - card: 0
+    connection: HDMI
+    audio: true
+    mode: 1080p50
+  - card: 1
+    connection: HDMI
+    audio: true
+    mode: 1080p60
+# - card: 1
+#  connection: SDI
+#  audio: false
+#  mode: 1080p60
+# check the frequency setting on the camera
+# make sure it matches what's the frequency of the local power
+# use BlackmagicDesktopVideoSetup to see what the camera is sending
+# 108059.94 is 15
+# 1080p50 is 14
+# 720p59.94 is 18
+# 720p50 is 17
+# list of all mode IDs: check 'gst-inspect-1.0 decklinkvideosrc'
+
+# voctolights:
+#   - camera: Cam1
+#     plugin: serial_dtr
+#     port: /dev/ttyUSB0
+
+# serial_terminal:
+# - tio
+# - minicom
