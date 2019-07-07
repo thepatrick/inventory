@@ -2,7 +2,7 @@
     name = Patrick Quinn-Graham
     email = make-contact@pftqg.com
 {% if git_sign_commits %}
-    signingkey = 4AACED0B
+    signingkey = {{git_sign_commits}}
 {% endif %}
 
 {% if git_sign_commits %}
@@ -14,6 +14,7 @@
 
 [core]
     pager = diff-so-fancy | less --tabs=2 -RFX
+    excludesfile = ~/.gitignore_global
 [color]
     ui = true
 [color "diff-highlight"]
