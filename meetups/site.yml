@@ -8,6 +8,8 @@
     - storage-key-server
     - storage-volume
     - storage-nfs-server
+    - ansible-aws-s3-deps
+    - download-blackmagic-drivers
 - hosts: meetupsencoder-orchestrator
   roles:
     - squid-deb-docker-acl

@@ -19,6 +19,7 @@ ansible-playbook \
     --diff \
     --inventory-file=hosts \
     --become \
+    --vault-password-file vault_password \
     --ask-become-pass \
     --user videoteam \
     --limit=$LIMIT_FILTER \

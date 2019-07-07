@@ -1,0 +1,14 @@
+---
+- name: download desktopvideo
+  aws_s3:
+    aws_access_key: "{{twopats_onsite_aws_access_key}}"
+    aws_secret_key: "{{twopats_onsite_aws_secret_key}}"
+    mode: get
+    region: ap-southeast-2
+    bucket: "twopats-live"
+    object: "/onsite/{{item}}"
+    dest: "/srv/pxe/{{item}}"
+    overwrite: never
+  with_items:
+  - "bm/desktopvideo_11.2a8_amd64.deb"
+  - "bm/desktopvideo-gui_11.2a8_amd64.deb"
