@@ -9,6 +9,8 @@
     - storage-volume
     - storage-nfs-server
     - google-cloud-sdk
+    - ansible-aws-s3-deps
+    - download-blackmagic-drivers
 - hosts: meetupsencoder-orchestrator
   roles:
     - squid-deb-docker-acl

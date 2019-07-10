@@ -1,0 +1,9 @@
+---
+- apt:
+    state: latest
+    name: python-pip
+
+- pip:
+    name:
+    - boto3
+    - botocore

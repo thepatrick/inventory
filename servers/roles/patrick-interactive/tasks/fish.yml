@@ -2,10 +2,10 @@
 - name: fish config directories
   file:
     state: directory
-    path: "/home/patrick/{{item}}"
+    path: "{{patrick_interactive_home}}/{{item}}"
     mode: "0755"
-    owner: "patrick"
-    group: "patrick"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - ".config/fish"
   - ".config/fish/functions"
@@ -15,16 +15,16 @@
 - name: fish.config
   template:
     src: "templates/config.fish.j2"
-    dest: "/home/patrick/.config/fish/config.fish"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.config/fish/config.fish"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 
 - name: fish config files
   copy:
     src: "files/{{item}}"
-    dest: "/home/patrick/.config/fish/{{item}}"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.config/fish/{{item}}"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - "fish_variables"
   - "fishfile"
@@ -38,17 +38,17 @@
 - name: get bass
   git:
     repo: https://github.com/edc/bass
-    dest: "/home/patrick/.config/fisherman/bass"
+    dest: "{{patrick_interactive_home}}/.config/fisherman/bass"
   become: yes
-  become_user: "patrick"
+  become_user: "{{patrick_interactive_user}}"
 
 - name: Link bass
   file:
     state: link
-    src: "/home/patrick/.config/fisherman/bass/functions/{{item}}"
-    dest: "/home/patrick/.config/fish/functions/{{item}}"
-    owner: "patrick"
-    group: "patrick"
+    src: "{{patrick_interactive_home}}/.config/fisherman/bass/functions/{{item}}"
+    dest: "{{patrick_interactive_home}}/.config/fish/functions/{{item}}"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - "__bass.py"
   - "bass.fish"
@@ -56,7 +56,7 @@
 - name: "vimrc"
   copy:
     src: "files/vimrc"
-    dest: "/home/patrick/.vimrc"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.vimrc"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 

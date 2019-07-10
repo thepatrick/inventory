@@ -2,10 +2,10 @@
 - name: home directory directories
   file:
     state: directory
-    path: "/home/patrick/{{item}}"
+    path: "{{patrick_interactive_home}}/{{item}}"
     mode: "0755"
-    owner: "patrick"
-    group: "patrick"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - "bin"
 

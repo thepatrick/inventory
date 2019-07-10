@@ -6,12 +6,23 @@
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
+
 - hosts: ansible
   roles:
   - patrick-interactive
+
 - hosts: argon
   roles:
   - patrick-interactive
   - geerlingguy.docker
   - google-cloud-sdk
 
+- hosts: macs
+  vars:
+    fish_package_user: patrick
+    patrick_interactive_home: /Users/patrick
+    patrick_interactive_group: staff
+    patrick_interactive_package_user: patrick
+  roles:
+  - fish
+  - patrick-interactive

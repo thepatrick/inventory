@@ -2,10 +2,10 @@
 - name: ssh directories
   file:
     state: directory
-    path: "/home/patrick/{{item}}"
+    path: "{{patrick_interactive_home}}/{{item}}"
     mode: "0755"
-    owner: "patrick"
-    group: "patrick"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
   with_items:
   - ".ssh"
   - ".ssh/tmp"
@@ -13,15 +13,15 @@
 - name: ssh config
   template:
     src: "templates/ssh/config.j2"
-    dest: "/home/patrick/.ssh/config"
-    owner: "patrick"
-    group: "patrick"
+    dest: "{{patrick_interactive_home}}/.ssh/config"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 
 - name: download diff-so-fancy
   get_url:
     url: https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
-    dest: "/home/patrick/bin/diff-so-fancy"
+    dest: "{{patrick_interactive_home}}/bin/diff-so-fancy"
     mode: "0755"
-    owner: "patrick"
-    group: "patrick"
+    owner: "{{patrick_interactive_user}}"
+    group: "{{patrick_interactive_group}}"
 
