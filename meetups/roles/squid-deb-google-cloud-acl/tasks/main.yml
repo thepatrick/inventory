@@ -1,0 +1,6 @@
+---
+- name: allow squid-deb-proxy to hit packages.cloud.google.com
+  copy:
+    src: files/50-google-cloud
+    dest: /etc/squid-deb-proxy/mirror-dstdomain.acl.d/50-google-cloud
+  notify: restart squid-deb-proxy

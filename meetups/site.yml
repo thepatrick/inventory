@@ -8,6 +8,7 @@
     - storage-key-server
     - storage-volume
     - storage-nfs-server
+    - squid-deb-google-cloud-acl
     - google-cloud-sdk
     - ansible-aws-s3-deps
     - download-blackmagic-drivers
