@@ -13,4 +13,5 @@
   roles:
   - patrick-interactive
   - geerlingguy.docker
+  - google-cloud-sdk
 
