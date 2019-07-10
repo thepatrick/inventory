@@ -1,0 +1,30 @@
+---
+- name: add google cloud key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    keyring: /usr/share/keyrings/cloud.google.gpg
+
+- name: add google cloud source
+  apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+    state: present
+    filename: google-cloud-sdk
+
+- name: install apt-transport-https
+  package:
+    name: apt-transport-https  
+    state: present
+  # when ubuntu
+
+- name: install ca-certificates
+  package:
+    name: ca-certificates
+    state: present
+  # when ubuntu
+
+- name: install google-cloud-sdk
+  package:
+    name: google-cloud-sdk
+    state: present
+  # when ubuntu
+
