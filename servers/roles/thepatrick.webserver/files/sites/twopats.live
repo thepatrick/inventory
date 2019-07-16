@@ -1,4 +1,4 @@
-crofter.thepatrick.live {
+crofter.twopats.live {
   tls {
     dns route53
   }
