@@ -28,3 +28,7 @@
     state: present
   # when ubuntu
 
+
+# sudo apt-get install gcc python-dev python-setuptools
+# sudo pip uninstall crcmod
+# sudo pip install --no-cache-dir -U crcmod
