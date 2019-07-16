@@ -1,0 +1,21 @@
+thepatrick.cloud {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://thepatrick.io{uri}
+}
+
+crofter.thepatrick.cloud {
+  tls {
+    dns cloudflare
+  }
+
+  root /opt/thepatrick/webserver/sites/notfound
+  status 404 /index.html
+}
+
+argon-syd.thepatrick.cloud {
+  root /opt/thepatrick/webserver/sites/notfound
+  status 404 /index.html
+}

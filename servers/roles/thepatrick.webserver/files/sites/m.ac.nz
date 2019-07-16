@@ -1,0 +1,35 @@
+m.ac.nz, flickr.m.ac.nz, www.m.ac.nz {
+  tls {
+    dns cloudflare
+  }
+
+  rewrite / {
+    regexp .*
+    to /macnz/{uri}
+  }
+
+  proxy / localhost:10394
+}
+
+code.m.ac.nz {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://github.com/thepatrick
+}
+
+ae.m.ac.nz {
+  tls {
+    dns cloudflare
+  }
+
+  root /Users/patrick/Sites/ae.m.ac.nz/
+
+  rewrite /softwareupdate/feed/agdwYXRyaWNrchQLEg1TVUFwcGxpY2F0aW9uGK8gDA/ /cheetahwatch.xml
+
+  redir 302 {
+    / https://thepatrick.io/projects/
+    if {rewrite_uri} not /cheetahwatch.xml
+  }
+}

@@ -16,6 +16,8 @@
   - patrick-interactive
   - geerlingguy.docker
   - google-cloud-sdk
+  - docker-py
+  - thepatrick.webserver
 
 - hosts: macs
   vars:

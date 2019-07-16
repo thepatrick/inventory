@@ -1,0 +1,15 @@
+thepatrick.dev {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://thepatrick.io{uri}
+}
+
+http://test.thepatrick.dev {
+  tls {
+    dns cloudflare
+  }
+
+  root /usr/local/caddy/test.thepatrick.dev
+}

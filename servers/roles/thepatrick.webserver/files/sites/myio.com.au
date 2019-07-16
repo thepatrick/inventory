@@ -1,0 +1,7 @@
+www.myio.com.au {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://myio.com.au{uri}
+}

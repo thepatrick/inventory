@@ -23,4 +23,3 @@ domain: thepatrick.cloud
 ansible_repo: https://github.com/thepatrick/inventory.git
 ansible_branch: master
 ansible_repo_dir: servers
-

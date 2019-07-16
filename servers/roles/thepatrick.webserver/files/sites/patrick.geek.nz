@@ -1,0 +1,47 @@
+about.patrick.geek.nz {
+  tls {
+    dns cloudflare
+  }
+
+  redir 302 {
+    /flickrtools https://thepatrick.io/projects/retired/flickrtools/
+    /            https://thepatrick.io{uri}
+  }
+}
+
+assets.patrick.geek.nz, cdn.assets.patrick.geek.nz {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://is.patrick.geek.nz{uri}
+}
+
+is.patrick.geek.nz {
+  tls {
+    dns cloudflare
+  }
+
+  root /Users/patrick/Sites/is.patrick.geek.nz/html
+}
+
+photos.patrick.geek.nz {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://thepatrick.io/projects/retired/pqphotos/
+}
+
+patrick.geek.nz, www.patrick.geek.nz, pftqg.com, wwww.pftqg.com {
+  tls {
+    dns cloudflare
+  }
+
+  rewrite / {
+    regexp .*
+    to /patrickgeeknz/{uri}
+  }
+
+  proxy / localhost:10394
+}

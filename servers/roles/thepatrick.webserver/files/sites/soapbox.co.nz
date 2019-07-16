@@ -1,0 +1,20 @@
+soapbox.co.nz, www.soapbox.co.nz {
+  tls {
+    dns cloudflare
+  }
+
+  rewrite / {
+    regexp .*
+    to /soapbox/{uri}
+  }
+
+  proxy / localhost:10394
+}
+
+movies.soapbox.co.nz {
+  tls {
+    dns cloudflare
+  }
+
+  redir https://thepatrick.io/projects/retired/movies/
+}
