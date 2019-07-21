@@ -35,6 +35,7 @@
     dest: /opt/thepatrick/webserver/sites-enabled/{{item}}
   notify: reload thepatrick-webserver-caddy
   with_items:
+  - "decade.geek.nz"
   - "thepatrick.cloud"
   - "twopats.live"
 
