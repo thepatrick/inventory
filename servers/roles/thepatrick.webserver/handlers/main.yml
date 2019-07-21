@@ -3,3 +3,8 @@
   docker_container:
     name: thepatrick-webserver-caddy
     restart: yes
+
+- name: reload thepatrick-webserver-redirectengine
+  docker_container:
+    name: thepatrick-webserver-redirectengine
+    restart: yes

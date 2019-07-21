@@ -1,4 +1,6 @@
 ---
+- include_tasks: redirectengine.yml
+
   # To build this container
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare github.com/abiosoft/caddy-docker.git
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare,route53 github.com/abiosoft/caddy-docker.git
@@ -85,5 +87,5 @@
     published_ports:
     - "80:80"
     - "443:443"
-    # links:
-    #   - "meetupsencoder-redis:redis"
+    links:
+      - "thepatrick-webserver-redirectengine:thepatrick-webserver-redirectengine"
