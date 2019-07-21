@@ -45,6 +45,7 @@
   - "thepatrick.dev"
   - "thepatrick.io"
   - "twopats.live"
+  - "very.photos"
 
 - name: write static websites
   copy:
