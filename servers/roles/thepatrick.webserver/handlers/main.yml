@@ -2,4 +2,4 @@
 - name: reload thepatrick-webserver-caddy
   docker_container:
     name: thepatrick-webserver-caddy
-    state: reloaded
+    restart: yes

@@ -17,7 +17,8 @@
   - geerlingguy.docker
   - google-cloud-sdk
   - docker-py
-  - thepatrick.webserver
+  - role: thepatrick.webserver
+    tags: thepatrick.webserver
 
 - hosts: macs
   vars:

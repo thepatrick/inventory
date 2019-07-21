@@ -20,6 +20,7 @@
   docker_image:
     name: thepatrick/webserver-caddy
     tag: 1.1.0
+    source: pull
 
 - name: write caddyfile
   copy:
