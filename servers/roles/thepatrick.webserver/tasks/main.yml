@@ -36,6 +36,7 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "decade.geek.nz"
+  - "headgoesboom.com"
   - "thepatrick.cloud"
   - "twopats.live"
 

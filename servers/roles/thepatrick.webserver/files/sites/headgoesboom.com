@@ -3,5 +3,5 @@ headgoesboom.com, www.headgoesboom.com {
     dns cloudflare
   }
 
-  root /Users/patrick/Sites/headgoesboom.com/html
+  redir https://thepatrick.io/
 }
