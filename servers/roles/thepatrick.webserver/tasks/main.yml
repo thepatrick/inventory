@@ -14,6 +14,7 @@
   - "/opt/thepatrick/webserver/"
   - "/opt/thepatrick/webserver/sites/"
   - "/opt/thepatrick/webserver/sites/notfound/"
+  - "/opt/thepatrick/webserver/sites/test.thepatrick.dev/"
   - "/opt/thepatrick/webserver/sites-enabled/"
 
 - name: pull caddy container
@@ -41,6 +42,7 @@
   - "patrick.nz"
   - "pftqg.com"
   - "thepatrick.cloud"
+  - "thepatrick.dev"
   - "twopats.live"
 
 - name: write static websites
@@ -50,6 +52,7 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "notfound/index.html"
+  - "test.thepatrick.dev/index.html"
 
 - name: run caddy container
   docker_container:
