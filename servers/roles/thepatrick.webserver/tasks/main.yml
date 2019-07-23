@@ -1,4 +1,6 @@
 ---
+- include_tasks: redirectengine.yml
+
   # To build this container
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare github.com/abiosoft/caddy-docker.git
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare,route53 github.com/abiosoft/caddy-docker.git
@@ -14,12 +16,14 @@
   - "/opt/thepatrick/webserver/"
   - "/opt/thepatrick/webserver/sites/"
   - "/opt/thepatrick/webserver/sites/notfound/"
+  - "/opt/thepatrick/webserver/sites/test.thepatrick.dev/"
   - "/opt/thepatrick/webserver/sites-enabled/"
 
 - name: pull caddy container
   docker_image:
     name: thepatrick/webserver-caddy
     tag: 1.1.0
+    source: pull
 
 - name: write caddyfile
   copy:
@@ -34,8 +38,19 @@
     dest: /opt/thepatrick/webserver/sites-enabled/{{item}}
   notify: reload thepatrick-webserver-caddy
   with_items:
+  - "decade.geek.nz"
+  - "headgoesboom.com"
+  - "m.ac.nz"
+  - "myio.com.au"
+  - "patrick.geek.nz"
+  - "patrick.nz"
+  - "pftqg.com"
+  - "soapbox.co.nz"
   - "thepatrick.cloud"
+  - "thepatrick.dev"
+  - "thepatrick.io"
   - "twopats.live"
+  - "very.photos"
 
 - name: write static websites
   copy:
@@ -44,6 +59,7 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "notfound/index.html"
+  - "test.thepatrick.dev/index.html"
 
 - name: run caddy container
   docker_container:
@@ -74,5 +90,5 @@
     published_ports:
     - "80:80"
     - "443:443"
-    # links:
-    #   - "meetupsencoder-redis:redis"
+    links:
+      - "thepatrick-webserver-redirectengine:thepatrick-webserver-redirectengine"

@@ -9,20 +9,12 @@ about.patrick.geek.nz {
   }
 }
 
-assets.patrick.geek.nz, cdn.assets.patrick.geek.nz {
+assets.patrick.geek.nz, cdn.assets.patrick.geek.nz, is.patrick.geek.nz {
   tls {
     dns cloudflare
   }
 
-  redir https://is.patrick.geek.nz{uri}
-}
-
-is.patrick.geek.nz {
-  tls {
-    dns cloudflare
-  }
-
-  root /Users/patrick/Sites/is.patrick.geek.nz/html
+  redir https://cdn.m.ac.nz{uri}
 }
 
 photos.patrick.geek.nz {
@@ -33,7 +25,7 @@ photos.patrick.geek.nz {
   redir https://thepatrick.io/projects/retired/pqphotos/
 }
 
-patrick.geek.nz, www.patrick.geek.nz, pftqg.com, wwww.pftqg.com {
+patrick.geek.nz, www.patrick.geek.nz, pftqg.com, www.pftqg.com {
   tls {
     dns cloudflare
   }
@@ -43,5 +35,5 @@ patrick.geek.nz, www.patrick.geek.nz, pftqg.com, wwww.pftqg.com {
     to /patrickgeeknz/{uri}
   }
 
-  proxy / localhost:10394
+  proxy / thepatrick-webserver-redirectengine:10394
 }

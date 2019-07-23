@@ -1,0 +1,37 @@
+---
+
+- name: redirectengine folders
+  file:
+    state: directory
+    path: "{{item}}"
+    mode: "0755"
+  with_items:
+  - "/opt/thepatrick/webserver-redirectengine/"
+
+- name: write redirectengine
+  copy:
+    src: files/redirectengine.js
+    dest: /opt/thepatrick/webserver-redirectengine/redirectengine.js
+  notify: reload thepatrick-webserver-redirectengine
+
+- name: pull node container
+  docker_image:
+    name: node
+    tag: 12.6.0-alpine
+    source: pull
+
+- name: run redirectengine container
+  docker_container:
+    name: thepatrick-webserver-redirectengine
+    image: node:12.6.0-alpine
+    state: started
+    restart_policy: always
+    command:
+    - "node"
+    - "/opt/app/redirectengine.js"
+    volumes:
+    - "/opt/thepatrick/webserver-redirectengine/redirectengine.js:/opt/app/redirectengine.js:ro"
+    exposed_ports:
+    - "10349"
+    published_ports:
+    - "10394:10394"

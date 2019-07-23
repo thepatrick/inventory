@@ -8,7 +8,7 @@ m.ac.nz, flickr.m.ac.nz, www.m.ac.nz {
     to /macnz/{uri}
   }
 
-  proxy / localhost:10394
+  proxy / thepatrick-webserver-redirectengine:10394
 }
 
 code.m.ac.nz {

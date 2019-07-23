@@ -11,5 +11,5 @@ http://test.thepatrick.dev {
     dns cloudflare
   }
 
-  root /usr/local/caddy/test.thepatrick.dev
+  root /opt/thepatrick/webserver/sites/test.thepatrick.dev
 }

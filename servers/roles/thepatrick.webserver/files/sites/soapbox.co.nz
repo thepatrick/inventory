@@ -8,7 +8,7 @@ soapbox.co.nz, www.soapbox.co.nz {
     to /soapbox/{uri}
   }
 
-  proxy / localhost:10394
+  proxy / thepatrick-webserver-redirectengine:10394
 }
 
 movies.soapbox.co.nz {
