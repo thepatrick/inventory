@@ -1,0 +1,10 @@
+---
+room_name: voctomix2
+
+irc_room_channel: "#thepatrick-cloud-video"
+irc_nick: thepatrickcloud2gui
+
+static_ip: 10.244.67.12
+
+voctomix_gui_server: 10.244.67.11
+

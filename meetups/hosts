@@ -13,6 +13,7 @@ bare
 storage-server
 tftp-dhcp-server
 voctomix
+voctogui
 
 [tftp-dhcp-server]
 gw
@@ -41,3 +42,10 @@ voctomix2
 [storage-key-client]
 voctomix1
 voctomix2
+
+[xorg]
+voctogui2
+
+[voctogui]
+voctogui2
+

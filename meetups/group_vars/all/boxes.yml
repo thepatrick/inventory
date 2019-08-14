@@ -12,5 +12,10 @@ staticips:
       ip: 10.244.67.11
       mac: 00:d8:61:6e:7c:64
       disk: /dev/nvme0n1
+    - hostname: voctogui2
+      ip: 10.244.67.12
+      mac: e8:6a:64:e7:1b:2b
+      disk: /dev/nvme0n1
   write_hosts: true
   write_interfaces: true
+

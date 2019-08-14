@@ -30,3 +30,6 @@
 - hosts: voctomix-overrides
   roles:
     - voctomix-overrides
+- hosts: voctogui
+  roles:
+    - voctomix-gui
