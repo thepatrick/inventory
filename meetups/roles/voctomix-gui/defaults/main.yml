@@ -1,0 +1,9 @@
+---
+debian_version: stretch
+
+voctomix_gui_display_system: gl
+
+voctomix_gui_server: localhost
+
+voctomix_gui_autostart: true
+

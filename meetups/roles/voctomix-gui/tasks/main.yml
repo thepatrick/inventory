@@ -1,0 +1,77 @@
+---
+- name: install voctomix & related packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - voctomix
+      - voctomix-outcasts
+      - gstreamer1.0-pulseaudio
+
+- name: install packages needed only on buster and later
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - gstreamer1.0-gl
+  when: debian_version != 'stretch'
+
+- name: install voctomix from backports on stretch
+  apt:
+    name: "{{ packages }}"
+    default_release: >-
+      {%- if debian_version == 'stretch' -%}
+      {{ debian_version }}-backports
+      {%- else -%}
+      {{ debian_version }}
+      {%- endif -%}
+    state: latest
+  vars:
+    packages:
+      - voctomix
+      - voctomix-core
+      - voctomix-gui
+  when: ansible_distribution == 'Debian'
+  tags:
+    - skip_ansible_lint  # using latest to upgrade to backports
+
+# sane sponsor loops require voctomix-outcasts >= 0.9.1
+- name: install voctomix-outcasts from backports on buster
+  apt:
+    name: "{{ packages }}"
+    default_release: >-
+      {%- if debian_version == 'stretch' -%}
+      {{ debian_version }}-backports-sloppy
+      {%- elif debian_version == 'buster' -%}
+      {{ debian_version }}-backports
+      {%- else -%}
+      {{ debian_version }}
+      {%- endif -%}
+    state: latest
+  vars:
+    packages:
+      - voctomix-outcasts
+  when: ansible_distribution == 'Debian'
+  tags:
+    - skip_ansible_lint  # using latest to upgrade to backports
+
+- name: create voctomix config dir
+  file:
+    path: /etc/voctomix
+    state: directory
+
+- name: configure voctomix
+  template:
+    src: "templates/{{ item }}.j2"
+    dest: "/etc/voctomix/{{ item }}"
+  with_items:
+    - voctogui.ini
+
+- name: Autostart voctogui
+  file:
+    src: /usr/share/applications/voctogui.desktop
+    dest: /etc/xdg/autostart/voctogui.desktop
+    state: link
+  when: voctomix_gui_autostart
+
+
