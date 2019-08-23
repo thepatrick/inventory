@@ -12,3 +12,6 @@
   with_items:
   - "bm/desktopvideo_11.2a8_amd64.deb"
   - "bm/desktopvideo-gui_11.2a8_amd64.deb"
+  - "bm/desktopvideo_11.3a7_amd64.deb"
+  - "bm/desktopvideo-gui_11.3a7_amd64.deb"
+  - "bm/mediaexpress_3.6a13_amd64.deb"
