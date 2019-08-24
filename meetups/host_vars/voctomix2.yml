@@ -7,8 +7,7 @@ irc_nick: thepatrickcloud2
 static_ip: 10.244.67.11
 
 sources:
-  - Camera1
-  - Grabber
+  - HDMI2
 
 # To enable proprietary drivers, provide a URL to them.
 blackmagic:
@@ -18,14 +17,14 @@ blackmagic:
   dkms_version: 11.3a7
 
 blackmagic_sources:
-  - card: 0
-    connection: HDMI
-    audio: true
-    mode: 15
   - card: 1
     connection: HDMI
     audio: true
     mode: 15
+# - card: 0
+#   connection: HDMI
+#   audio: true
+#   mode: 15
 # - card: 1
 #  connection: SDI
 #  audio: false
