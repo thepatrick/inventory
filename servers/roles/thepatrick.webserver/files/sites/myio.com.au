@@ -1,7 +1,7 @@
-www.myio.com.au {
+myio.com.au, www.myio.com.au {
   tls {
     dns cloudflare
   }
 
-  redir https://myio.com.au{uri}
+  redir https://legacy.myio.com.au{uri}
 }
