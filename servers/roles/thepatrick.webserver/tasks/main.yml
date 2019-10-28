@@ -41,7 +41,6 @@
   - "decade.geek.nz"
   - "headgoesboom.com"
   - "m.ac.nz"
-  - "myio.com.au"
   - "patrick.geek.nz"
   - "patrick.nz"
   - "pftqg.com"
@@ -51,6 +50,14 @@
   - "thepatrick.io"
   - "twopats.live"
   - "very.photos"
+
+- name: delete old websites
+  file:
+    path: /opt/thepatrick/webserver/sites-enabled/{{item}}
+    state: absent
+  notify: reload thepatrick-webserver-caddy
+  with_items:
+  - "myio.com.au"
 
 - name: write static websites
   copy:
