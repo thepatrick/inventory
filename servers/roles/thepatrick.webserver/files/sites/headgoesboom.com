@@ -1,6 +1,6 @@
 headgoesboom.com, www.headgoesboom.com {
   tls {
-    dns cloudflare
+    dns route53
   }
 
   redir https://thepatrick.io/

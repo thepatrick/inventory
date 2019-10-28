@@ -1,6 +1,6 @@
 myio.com.au, www.myio.com.au {
   tls {
-    dns cloudflare
+    dns route53
   }
 
   redir http://legacy.myio.com.au{uri}
