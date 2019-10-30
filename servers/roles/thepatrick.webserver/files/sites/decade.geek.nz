@@ -1,7 +1,0 @@
-www.decade.geek.nz {
-  tls {
-    dns cloudflare
-  }
-
-  redir https://decade.geek.nz{uri}
-}

@@ -38,7 +38,6 @@
     dest: /opt/thepatrick/webserver/sites-enabled/{{item}}
   notify: reload thepatrick-webserver-caddy
   with_items:
-  - "decade.geek.nz"
   - "headgoesboom.com"
   - "m.ac.nz"
   - "patrick.geek.nz"
@@ -58,6 +57,7 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "myio.com.au"
+  - "decade.geek.nz"
 
 - name: write static websites
   copy:
