@@ -46,9 +46,7 @@
   - "soapbox.co.nz"
   - "thepatrick.cloud"
   - "thepatrick.dev"
-  - "thepatrick.io"
   - "twopats.live"
-  - "very.photos"
 
 - name: delete old websites
   file:
@@ -58,6 +56,8 @@
   with_items:
   - "myio.com.au"
   - "decade.geek.nz"
+  - "thepatrick.io"
+  - "very.photos"
 
 - name: write static websites
   copy:

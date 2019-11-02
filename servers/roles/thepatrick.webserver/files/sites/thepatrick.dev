@@ -1,15 +1,7 @@
 thepatrick.dev {
   tls {
-    dns cloudflare
+    dns route53
   }
 
   redir https://thepatrick.io{uri}
-}
-
-http://test.thepatrick.dev {
-  tls {
-    dns cloudflare
-  }
-
-  root /opt/thepatrick/webserver/sites/test.thepatrick.dev
 }

@@ -1,7 +1,0 @@
-very.photos, www.very.photos {
-  tls {
-    dns cloudflare
-  }
-
-  redir https://www.flickr.com/photos/pftqg
-}
