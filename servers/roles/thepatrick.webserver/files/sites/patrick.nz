@@ -1,7 +1,0 @@
-patrick.nz, www.patrick.nz {
-  tls {
-    dns cloudflare
-  }
-
-  redir https://thepatrick.io{uri}
-}

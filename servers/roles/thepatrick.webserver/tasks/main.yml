@@ -41,7 +41,6 @@
   - "headgoesboom.com"
   - "m.ac.nz"
   - "patrick.geek.nz"
-  - "patrick.nz"
   - "pftqg.com"
   - "soapbox.co.nz"
   - "thepatrick.cloud"
@@ -58,6 +57,7 @@
   - "decade.geek.nz"
   - "thepatrick.io"
   - "very.photos"
+  - "patrick.nz"
 
 - name: write static websites
   copy:
