@@ -1,4 +1,4 @@
-photos.pftqg.com, pqphotos.com {
+photos.pftqg.com {
   tls {
     dns cloudflare
   }
