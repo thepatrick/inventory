@@ -2,7 +2,8 @@
 - hosts: common
   roles:
   - fish
-  - users 
+  - role: users 
+    tags: users
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
