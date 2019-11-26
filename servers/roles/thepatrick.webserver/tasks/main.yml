@@ -35,14 +35,13 @@
   with_items:
   - "headgoesboom.com"
   - "thepatrick.cloud"
-  - "thepatrick.dev"
 
-# - name: delete websites
-#   file:
-#     path: /opt/thepatrick/webserver/sites-enabled/{{item}}
-#     state: absent
-#   with_items:
-#   - "somewhere.com"
+- name: delete websites
+  file:
+    path: /opt/thepatrick/webserver/sites-enabled/{{item}}
+    state: absent
+  with_items:
+  - "thepatrick.dev"
 
 - name: run caddy container
   docker_container:

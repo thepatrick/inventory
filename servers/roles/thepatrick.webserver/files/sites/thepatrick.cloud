@@ -3,6 +3,5 @@ thepatrick.cloud {
 }
 
 argon-syd.thepatrick.cloud {
-  root /opt/thepatrick/webserver/sites/notfound
-  status 404 /index.html
+  redir https://thepatrick.io/
 }
