@@ -1,9 +1,0 @@
-import ./sites-enabled/*
-
-argon-syd.thepatrick.cloud {
-  redir https://thepatrick.io/
-}
-
-http://* {
-  redir https://thepatrick.io/
-}

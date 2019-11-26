@@ -1,70 +1,37 @@
 ---
-  # To build this container
-  # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare github.com/abiosoft/caddy-docker.git
-  # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare,route53 github.com/abiosoft/caddy-docker.git
-  # docker tag thepatrick/webserver-caddy:latest thepatrick/webserver-caddy:1.1.0
-  # docker push thepatrick/webserver-caddy:1.1.0
+# To build this container
+# docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare github.com/abiosoft/caddy-docker.git
+# docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare,route53 github.com/abiosoft/caddy-docker.git
+# docker tag thepatrick/webserver-caddy:latest thepatrick/webserver-caddy:1.1.0
+# docker push thepatrick/webserver-caddy:1.1.0
 
-- name: caddy folders
-  file:
-    state: directory
-    path: "{{item}}"
-    mode: "0755"
-  with_items:
-  - "/opt/thepatrick/webserver/"
-  - "/opt/thepatrick/webserver/sites-enabled/"
-
-- name: pull caddy container
-  docker_image:
-    name: thepatrick/webserver-caddy
-    tag: 1.1.0
-    source: pull
-
-- name: write caddyfile
-  copy:
-    src: files/Caddyfile
-    dest: /opt/thepatrick/webserver/Caddyfile
-    mode: "0644"
-  notify: reload thepatrick-webserver-caddy
-
-- name: write websites
-  copy:
-    src: files/sites/{{item}}
-    dest: /opt/thepatrick/webserver/sites-enabled/{{item}}
-  notify: reload thepatrick-webserver-caddy
-  with_items:
-  - "headgoesboom.com"
-
-- name: delete websites
-  file:
-    path: /opt/thepatrick/webserver/sites-enabled/{{item}}
-    state: absent
-  with_items:
-  - "thepatrick.dev"
-  - "thepatrick.cloud"
-
-- name: run caddy container
-  docker_container:
-    name: thepatrick-webserver-caddy
-    image: thepatrick/webserver-caddy:1.1.0
-    state: started
-    restart_policy: always
-    command:
-    - "--conf"
-    - "/opt/thepatrick/webserver/Caddyfile"
-    - "--log"
-    - "stdout"
-    - "--agree=true"
-    - "--disable-http-challenge"
-    - "--port"
-    - "443"
-    - "--http-port"
-    - "80"
-    env:
-      ACME_AGREE: "true"
-      CADDYPATH: "/opt/thepatrick/webserver/caddycerts"
-    volumes:
-    - "/opt/thepatrick/webserver:/opt/thepatrick/webserver"
-    published_ports:
-    - "80:80"
-    - "443:443"
+# - name: pull caddy container
+#   docker_image:
+#     name: thepatrick/webserver-caddy
+#     tag: 1.1.0
+#     source: pull
+# - name: run caddy container
+#   docker_container:
+#     name: thepatrick-webserver-caddy
+#     image: thepatrick/webserver-caddy:1.1.0
+#     state: started
+#     restart_policy: always
+#     command:
+#     - "--conf"
+#     - "/opt/thepatrick/webserver/Caddyfile"
+#     - "--log"
+#     - "stdout"
+#     - "--agree=true"
+#     - "--disable-http-challenge"
+#     - "--port"
+#     - "443"
+#     - "--http-port"
+#     - "80"
+#     env:
+#       ACME_AGREE: "true"
+#       CADDYPATH: "/opt/thepatrick/webserver/caddycerts"
+#     volumes:
+#     - "/opt/thepatrick/webserver:/opt/thepatrick/webserver"
+#     published_ports:
+#     - "80:80"
+#     - "443:443"
