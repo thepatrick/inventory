@@ -1,7 +1,0 @@
-thepatrick.cloud {
-  redir https://thepatrick.io{uri}
-}
-
-argon-syd.thepatrick.cloud {
-  redir https://thepatrick.io/
-}

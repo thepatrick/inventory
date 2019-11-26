@@ -34,7 +34,6 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "headgoesboom.com"
-  - "thepatrick.cloud"
 
 - name: delete websites
   file:
@@ -42,6 +41,7 @@
     state: absent
   with_items:
   - "thepatrick.dev"
+  - "thepatrick.cloud"
 
 - name: run caddy container
   docker_container:
