@@ -1,6 +1,4 @@
 ---
-- include_tasks: redirectengine.yml
-
   # To build this container
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare github.com/abiosoft/caddy-docker.git
   # docker build -t thepatrick/webserver-caddy --build-arg plugins=cloudflare,route53 github.com/abiosoft/caddy-docker.git
@@ -14,9 +12,6 @@
     mode: "0755"
   with_items:
   - "/opt/thepatrick/webserver/"
-  - "/opt/thepatrick/webserver/sites/"
-  - "/opt/thepatrick/webserver/sites/notfound/"
-  - "/opt/thepatrick/webserver/sites/test.thepatrick.dev/"
   - "/opt/thepatrick/webserver/sites-enabled/"
 
 - name: pull caddy container
@@ -39,34 +34,15 @@
   notify: reload thepatrick-webserver-caddy
   with_items:
   - "headgoesboom.com"
-  - "m.ac.nz"
-  - "patrick.geek.nz"
-  - "pftqg.com"
-  - "soapbox.co.nz"
   - "thepatrick.cloud"
   - "thepatrick.dev"
-  - "twopats.live"
 
-- name: delete old websites
-  file:
-    path: /opt/thepatrick/webserver/sites-enabled/{{item}}
-    state: absent
-  notify: reload thepatrick-webserver-caddy
-  with_items:
-  - "myio.com.au"
-  - "decade.geek.nz"
-  - "thepatrick.io"
-  - "very.photos"
-  - "patrick.nz"
-
-- name: write static websites
-  copy:
-    src: files/sites-files/{{item}}
-    dest: /opt/thepatrick/webserver/sites/{{item}}
-  notify: reload thepatrick-webserver-caddy
-  with_items:
-  - "notfound/index.html"
-  - "test.thepatrick.dev/index.html"
+# - name: delete websites
+#   file:
+#     path: /opt/thepatrick/webserver/sites-enabled/{{item}}
+#     state: absent
+#   with_items:
+#   - "somewhere.com"
 
 - name: run caddy container
   docker_container:
@@ -88,14 +64,8 @@
     env:
       ACME_AGREE: "true"
       CADDYPATH: "/opt/thepatrick/webserver/caddycerts"
-      CLOUDFLARE_EMAIL: "{{thepatrick_cloudflare_email}}"
-      CLOUDFLARE_API_KEY: "{{thepatrick_cloudflare_api_key}}"
-      AWS_ACCESS_KEY_ID: "{{thepatrick_aws_caddy_key_id}}"
-      AWS_SECRET_ACCESS_KEY: "{{thepatrick_aws_caddy_secret}}"
     volumes:
     - "/opt/thepatrick/webserver:/opt/thepatrick/webserver"
     published_ports:
     - "80:80"
     - "443:443"
-    links:
-      - "thepatrick-webserver-redirectengine:thepatrick-webserver-redirectengine"

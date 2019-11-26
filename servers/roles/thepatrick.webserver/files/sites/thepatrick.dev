@@ -1,7 +1,3 @@
 thepatrick.dev {
-  tls {
-    dns route53
-  }
-
   redir https://thepatrick.io{uri}
 }

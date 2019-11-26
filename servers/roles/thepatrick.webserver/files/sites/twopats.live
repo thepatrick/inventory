@@ -1,8 +1,0 @@
-crofter.twopats.live {
-  tls {
-    dns route53
-  }
-
-  root /opt/thepatrick/webserver/sites/notfound
-  status 404 /index.html
-}
