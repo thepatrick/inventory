@@ -1,6 +1,0 @@
-import ./sites-enabled/*
-
-http://* {
-  root /opt/thepatrick/webserver/sites/notfound
-  status 404 /index.html
-}

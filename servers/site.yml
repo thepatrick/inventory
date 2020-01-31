@@ -2,7 +2,8 @@
 - hosts: common
   roles:
   - fish
-  - users 
+  - role: users 
+    tags: users
   - weareinteractive.sudo
   - ssh-lockdown
   - mosh
@@ -17,8 +18,6 @@
   - geerlingguy.docker
   - google-cloud-sdk
   - docker-py
-  - role: thepatrick.webserver
-    tags: thepatrick.webserver
 
 - hosts: macs
   vars:
