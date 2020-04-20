@@ -1,22 +1,25 @@
 ---
-- hosts: common
+- hosts: basics
   roles:
   - fish
   - role: users 
     tags: users
   - weareinteractive.sudo
   - ssh-lockdown
+
+- hosts: servers
+  roles:
   - mosh
-
-- hosts: ansible
-  roles:
   - patrick-interactive
 
-- hosts: argon
+- hosts: google-cloud-sdk
   roles:
-  - patrick-interactive
-  - geerlingguy.docker
   - google-cloud-sdk
+
+
+- hosts: docker
+  roles:
+  - geerlingguy.docker
   - docker-py
 
 - hosts: macs

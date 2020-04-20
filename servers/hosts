@@ -6,15 +6,18 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
-[common]
+[basics]
+dc4-syd.thepatrick.cloud
 ansible1-syd.thepatrick.cloud
-argon-syd.thepatrick.cloud
 
-[argon]
-argon-syd.thepatrick.cloud
-
-[ansible]
+[google-cloud-sdk]
 ansible1-syd.thepatrick.cloud
+
+[servers]
+ansible1-syd.thepatrick.cloud
+
+# [docker]
+# argon-syd.thepatrick.cloud
 
 [macs]
 rachael.thepatrick.cloud
