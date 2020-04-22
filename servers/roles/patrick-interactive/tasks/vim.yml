@@ -60,4 +60,7 @@
     repo: 'ekalinin/Dockerfile.vim'
   - name: 'promptline.vim'
     repo: 'edkolev/promptline.vim'
+  - name: 'ale'
+    repo: 'dense-analysis/ale'
+
 

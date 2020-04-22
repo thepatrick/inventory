@@ -10,8 +10,8 @@
 dc4-syd.thepatrick.cloud
 ansible1-syd.thepatrick.cloud
 
-[google-cloud-sdk]
-ansible1-syd.thepatrick.cloud
+#[google-cloud-sdk]
+#ansible1-syd.thepatrick.cloud
 
 [servers]
 ansible1-syd.thepatrick.cloud
