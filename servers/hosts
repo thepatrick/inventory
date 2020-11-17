@@ -9,6 +9,9 @@
 [basics]
 dc4-syd.thepatrick.cloud
 ansible1-syd.thepatrick.cloud
+10.8.12.10
+10.8.12.11
+10.8.12.12
 
 #[google-cloud-sdk]
 #ansible1-syd.thepatrick.cloud
