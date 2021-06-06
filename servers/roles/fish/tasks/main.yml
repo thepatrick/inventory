@@ -5,3 +5,14 @@
   package:
     name: 'fish'
     state: present
+  when: 'ansible_distribution != "MacOSX"'
+
+- name: Ensure Fish Is Present on macOS
+  homebrew:
+    name: fish
+    path: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew/bin', '/usr/local/bin') }}"
+    state: present
+  become: true
+  become_user: "{{patrick_interactive_package_user}}"
+  when: ansible_distribution == "MacOSX"
+

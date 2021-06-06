@@ -1,11 +1,20 @@
 ---
-- name: Ensure vim Is Present
+- name: Ensure vim Is Present unless on macOS
   become: true
   become_user: "{{patrick_interactive_package_user}}"
   package:
     name: 'vim'
     state: present
-# TODO: Do this for macOS too
+  when: 'ansible_distribution != "MacOSX"'
+
+- name: Ensure vim Is Present on macOS
+  homebrew:
+    name: vim
+    path: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew/bin', '/usr/local/bin') }}"
+    state: present
+  become: true
+  become_user: "{{patrick_interactive_package_user}}"
+  when: ansible_distribution == "MacOSX"
 
 - name: vim config directories
   file:

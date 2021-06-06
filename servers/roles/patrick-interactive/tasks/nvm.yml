@@ -16,10 +16,10 @@
     dest: "{{patrick_interactive_home}}/.nvm/install-helper.sh"
     mode: "0755"
 
-- name: node v12.5.0
+- name: node v16.3.0
   become: "yes"
   become_user: "{{patrick_interactive_user}}"
   shell: >
-    {{patrick_interactive_home}}/.nvm/install-helper.sh v12.5.0
+    {{patrick_interactive_home}}/.nvm/install-helper.sh v16.3.0
   args:
-    creates: "{{patrick_interactive_user}}/versions/node/v12.5.0/node"
+    creates: "{{patrick_interactive_user}}/versions/node/v16.3.0/node"

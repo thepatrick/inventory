@@ -2,22 +2,20 @@
 # Commit at the end kept from original snippet, I added the rev-parse stuff and the proper redirection.
 
 function add_to_path
-  if test -e $argv[1]
-    if not contains $argv[1] $PATH
-      set -x PATH $argv[1] $PATH 
-    end
-  end
+  fish_add_path $argv[1]
 end
 
-add_to_path /usr/bin
-add_to_path /usr/sbin
-add_to_path /usr/local/bin
-add_to_path /usr/local/sbin
-add_to_path ~/bin
-add_to_path ~/etc
-add_to_path $HOME/.rvm/bin        # Add RVM to PATH for scripting
-add_to_path $HOME/.local/bin      # pip install --user puts things here
-add_to_path $HOME/.tfenv/bin
+fish_add_path /usr/bin
+fish_add_path /usr/sbin
+fish_add_path /usr/local/bin
+fish_add_path /usr/local/sbin
+fish_add_path ~/bin
+fish_add_path ~/etc
+fish_add_path $HOME/.rvm/bin        # Add RVM to PATH for scripting
+fish_add_path $HOME/.local/bin      # pip install --user puts things here
+fish_add_path $HOME/.tfenv/bin
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
 
 function lsl
   ls -lFh $argv
@@ -41,6 +39,9 @@ set -x HOMEBREW_NO_ANALYTICS 1
 
 function user_message
   if status --is-interactive
+function ibrew
+  arch -x86_64 /usr/local/bin/brew $argv
+end
     echo $argv[1]
   end
 end
