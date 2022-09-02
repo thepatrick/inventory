@@ -8,17 +8,10 @@ Host 10.192.11.*
   UserKnownHostsFile /dev/null
 #}
 
-Host ansible1-syd
-  HostName ansible1-syd.thepatrick.cloud
-  User patrick
-  ForwardAgent yes
-
-Host argon-syd
-  HostName argon-syd.thepatrick.cloud
-  User patrick
-  ForwardAgent yes
-
 Host *
   ServerAliveCountMax 3
   ServerAliveInterval 60
   KeepAlive yes
+  {% if use_secretive %}
+	IdentityAgent /Users/patrick/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  {% endif %}
