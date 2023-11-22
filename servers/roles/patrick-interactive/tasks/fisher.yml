@@ -1,0 +1,31 @@
+---
+- name: fisher install helper
+  become: "yes"
+  become_user: "{{patrick_interactive_user}}"
+  template:
+    src: "templates/install-fisher.j2"
+    dest: "{{patrick_interactive_home}}/.config/fish/install-fisher"
+    mode: "0755"
+
+- name: fisher
+  become: "yes"
+  become_user: "{{patrick_interactive_user}}"
+  shell: >
+    {{patrick_interactive_home}}/.config/fish/install-fisher
+  args:
+    creates: "{{patrick_interactive_home}}/.config/fish/functions/fisher.fish"
+
+- name: fisher helper
+  become: "yes"
+  become_user: "{{patrick_interactive_user}}"
+  template:
+    src: "templates/helper-fisher-install.j2"
+    dest: "{{patrick_interactive_home}}/.config/fish/helper-fisher-install"
+    mode: "0755"
+
+- name: fisher nvm
+  become: "yes"
+  shell: >
+    {{patrick_interactive_home}}/.config/fish/install-fisher jorgebucaran/nvm.fish  
+  args:
+    creates: "{{patrick_interactive_home}}/.config/fish/functions/nvm.fish"

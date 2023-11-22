@@ -29,10 +29,8 @@
   - "fish_variables"
   - "fishfile"
   - "shell_prompt.sh"
-  - "completions/fisher.fish"
   - "functions/copy-bass.fish"
   - "functions/fish_prompt.fish"
-  - "functions/fisher.fish"
   - "functions/rvm.fish"
 
 - name: get bass
